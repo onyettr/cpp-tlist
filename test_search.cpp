@@ -58,11 +58,11 @@ Prototypes of all functions contained in this file (in order of occurance)
 int test_search ( void )
 {
   // Sign on
-  cout << "**** Linked List Class Test - list search" << endl; 
+  cout << "**** Linked List Class Test Template - list search" << endl; 
 
-  linked_list searchTest1;
-  linked_list serTest2;
-  linked_list serTest3;
+  linked_list<int> searchTest1;
+  linked_list<int> serTest2;
+  linked_list<int> serTest3;
   
   /*
    * Test01a - single element, positive find

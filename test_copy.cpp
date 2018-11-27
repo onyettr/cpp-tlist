@@ -58,12 +58,12 @@ Prototypes of all functions contained in this file (in order of occurance)
 int test_copy( void )
 {
   // Sign on
-  cout << "**** Linked List Class Test - copy" << endl; 
+  cout << "**** Linked List Class Test Template - copy" << endl; 
 
   /*
    * create a new list
    */ 
-  linked_list srcCopyTest;
+  linked_list<int> srcCopyTest;
   //  linked_list dstCopyTest;
   
   srcCopyTest.list_add_element(100);
@@ -73,11 +73,11 @@ int test_copy( void )
   srcCopyTest.list_add_element(104);      
 
   cout << "\tTest01 - src list copy, size  " << srcCopyTest.list_size()  << endl;
-  srcCopyTest.list_dump();
-  linked_list dstCopyTest = srcCopyTest;
+  srcCopyTest.list_show();
+  linked_list<int> dstCopyTest = srcCopyTest;
   // dstCopyTest = srcCopyTest;  
   cout << "\tTest02 - dst list copy, size  " << dstCopyTest.list_size()  << endl;
-  dstCopyTest.list_dump();    
+  dstCopyTest.list_show();    
   cout << "**** Linked List Class Test - copy Ends" << endl;
   
   return 0;

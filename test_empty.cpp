@@ -58,16 +58,16 @@ Prototypes of all functions contained in this file (in order of occurance)
 int test_empty( void )
 {
   // Sign on
-  cout << "**** Linked List Class Test - empty" << endl; 
+  cout << "**** Linked List Class Test template - empty" << endl; 
 
   /*
    * create a new list
    */ 
-  linked_list emptyTest;
+  linked_list<string> emptyTest;
   
   cout << "\tTest01 - list empty  TRUE = " << (emptyTest.list_empty() == true ? "TRUE" : "FALSE") << endl;  
 
-  emptyTest.list_add_element(100);
+  emptyTest.list_add_element("one");
   cout << "\tTest02 - list empty  FALSE= " << (emptyTest.list_empty() == true ? "TRUE" : "FALSE") << endl;
 
   cout << "**** Linked List Class Test - empty Ends" << endl;

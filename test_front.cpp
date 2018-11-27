@@ -60,12 +60,12 @@ Prototypes of all functions contained in this file (in order of occurance)
 int test_front (void)
 {
   // Sign on
-  cout << "Linked List Class Test - front" << endl; 
+  cout << "Linked List Class Test Template - front" << endl; 
 
   /*
    * create a new list
    */ 
-  linked_list addTest;
+  linked_list<int> addTest;
   
   /*
    * Add an element
@@ -91,7 +91,7 @@ int test_front (void)
   addTest.list_add_at_front(111);
   cout << "Return (111) = " << addTest.list_get_front() << endl;  
 
-  addTest.list_dump();
+  addTest.list_show();
   
   return 0;
 }

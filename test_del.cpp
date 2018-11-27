@@ -58,12 +58,12 @@ Prototypes of all functions contained in this file (in order of occurance)
 int test_del ( void )
 {
   // Sign on
-  cout << "**** Linked List Class Test - deletion" << endl; 
+  cout << "**** Linked List Class Test Template - deletion" << endl; 
 
   /*
    * create a new list
    */ 
-  linked_list delTest;
+  linked_list<int> delTest;
   
   /*
    * Add an element
@@ -73,17 +73,17 @@ int test_del ( void )
   delTest.list_add_element(204);
   delTest.list_add_element(205);    
   cout << "\tNumber in list before deletion = " << delTest.list_size() << endl;  
-  delTest.list_dump();
+  delTest.list_show();
 
   cout << "\tTest01 - del single element" << endl;
   delTest.list_delete_element(1);
   cout << "\tNumber in list after deletion at 1  = " << delTest.list_size() << endl;    
-  delTest.list_dump();
+  delTest.list_show();
 
   cout << "\tTest02 - del first element" << endl;  
   delTest.list_delete_element(0);
   cout << "\tNumber in list after deletion at 0 = " << delTest.list_size() << endl;    
-  delTest.list_dump();
+  delTest.list_show();
 
   cout << "\tTest03 - del illegal element, exception to be thrown" << endl;    
   try {
@@ -94,7 +94,7 @@ int test_del ( void )
     cout << "Exception: ouch something bad went on = " << endl;
   }
 
-  cout << "**** Linked List Class Test - deletion Ends" << endl;
+  cout << "**** Linked List Class Test Template - deletion Ends" << endl;
   
   return 0;
 }

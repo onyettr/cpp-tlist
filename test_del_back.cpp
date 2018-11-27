@@ -58,12 +58,12 @@ Prototypes of all functions contained in this file (in order of occurance)
 int test_del_back ( void )
 {
   // Sign on
-  cout << "**** Linked List Class Test - deletion back" << endl; 
+  cout << "**** Linked List Class Test Template - deletion back" << endl; 
 
   /*
    * create a new list
    */ 
-  linked_list delTest;
+  linked_list<int> delTest;
   
   /*
    * Add an element
@@ -74,25 +74,25 @@ int test_del_back ( void )
 
   cout << "\tTest01 - delete back element" << endl;
   cout << "\tNumber in list before deletion = " << delTest.list_size() << endl;  
-  delTest.list_dump();
+  delTest.list_show();
   
   delTest.list_delete_back();
   cout << "\tNumber in list after back deletion = " << delTest.list_size() << endl;    
-  delTest.list_dump();
+  delTest.list_show();
   cout << "\tLast number (102) = " << delTest.list_get_back() << endl;
     
   cout << "\tTest01c - del back element, one element" << endl;
-  linked_list delTest2;
+  linked_list<int> delTest2;
   delTest2.list_add_element(200);
 
-  delTest2.list_dump();
+  delTest2.list_show();
   delTest2.list_delete_back();
   cout << "\tNumber in list after back deletion = " << delTest2.list_size() << endl;      
   //  cout << "\tReturn (0) = " << delTest2.list_get_back() << endl;
-  delTest2.list_dump();
+  delTest2.list_show();
   
   cout << "\tTest03 - delete back element, exception to be thrown - empty list" << endl;
-  linked_list delTest3;
+  linked_list<int> delTest3;
   try {
     delTest3.list_delete_back();    
   } catch (std::runtime_error& e) {

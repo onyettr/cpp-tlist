@@ -30,18 +30,17 @@ LIST_OBJS = 				\
 #	$(OBJECT_DIR)/list.o
 
 TEST_OBJS = 				\
-	$(OBJECT_DIR)/test_add.o
-
-#	$(OBJECT_DIR)/test_del.o 	\
-#	$(OBJECT_DIR)/test_rev.o 	\
-#	$(OBJECT_DIR)/test_size.o	\
-#	$(OBJECT_DIR)/test_copy.o	\
-#	$(OBJECT_DIR)/test_back.o	\
-#	$(OBJECT_DIR)/test_front.o	\
-#	$(OBJECT_DIR)/test_search.o	\
-#	$(OBJECT_DIR)/test_del_back.o	\
-#	$(OBJECT_DIR)/test_del_front.o	\
-#	$(OBJECT_DIR)/test_empty.o
+	$(OBJECT_DIR)/test_add.o	\
+	$(OBJECT_DIR)/test_back.o	\
+	$(OBJECT_DIR)/test_del.o 	\
+	$(OBJECT_DIR)/test_rev.o 	\
+	$(OBJECT_DIR)/test_size.o	\
+	$(OBJECT_DIR)/test_copy.o	\
+	$(OBJECT_DIR)/test_front.o	\
+	$(OBJECT_DIR)/test_search.o	\
+	$(OBJECT_DIR)/test_del_back.o	\
+	$(OBJECT_DIR)/test_del_front.o	\
+	$(OBJECT_DIR)/test_empty.o
 
 LISTLIB = liblist.a
 
@@ -120,9 +119,8 @@ $(OBJECT_DIR)/poortool.o:	poortool.c
 
 clean:
 	rm -f list.exe
-	rm -f $(OBJECT_DIR)/list.o
-	rm -f liblist.a
 	rm -f libtest.a
+	rm -f $(OBJECT_DIR)/list.o
 	rm -f $(OBJECT_DIR)/main.o
 	rm -f $(OBJECT_DIR)/test_add.o
 	rm -f $(OBJECT_DIR)/test_del.o

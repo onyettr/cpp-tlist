@@ -735,18 +735,18 @@ void linked_list<T>::list_reverse (void) {
 }
 
 /**
- * @fn        void linked_list::list_search(int value) 
+ * @fn        void linked_list::list_search(const T& value) 
  *
  * @brief     Search the single linked list
  *
- * @param     value - What to search for
+ * @param[in] value - What to search for
  *
  * @return    int Position - place in the list
  * @throws    std::runtime_error - list empty
  * @note
  */
 template <class T>
-int linked_list<T>::list_search (T& value) {
+int linked_list<T>::list_search (const T& value) {
 #if defined ( DEBUG_TRACE )
     cout << "<" << this << ">TRACE: list_search called "  << endl;  
 #endif
@@ -767,11 +767,11 @@ int linked_list<T>::list_search (T& value) {
       if (pCurrent->element == value) {  /* We have a match                */
 	return Position;
       }
-      pCurrent = pCurrent->pNext;         /* Advance down the list         */
+      pCurrent = pCurrent->pNext;        /* Advance down the list          */
       ++Position;
     }
 
-    return -1;                            /* We have no match              */
+    return -1;                           /* We have no match               */
 }
 
 /**

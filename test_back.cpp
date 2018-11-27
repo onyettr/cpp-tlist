@@ -60,12 +60,12 @@ Prototypes of all functions contained in this file (in order of occurance)
 int test_back (void)
 {
   // Sign on
-  cout << "**** Linked List Class Test - back" << endl; 
+  cout << "**** Linked List Class Test template - back" << endl; 
 
   /*
    * create a new list
    */ 
-  linked_list addTest;
+  linked_list<int> addTest;
   
   /*
    * Add an element
@@ -91,9 +91,9 @@ int test_back (void)
   addTest.list_add_at_back(111);
   cout << "\tReturn (111) = " << addTest.list_get_back() << endl;  
 
-  addTest.list_dump();
+  addTest.list_show();
 
-  cout << "**** Linked List Class Test - back Ends" << endl;
+  cout << "**** Linked List Class Test Template - back Ends" << endl;
   
   return 0;
 }

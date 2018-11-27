@@ -58,11 +58,11 @@ Prototypes of all functions contained in this file (in order of occurance)
 int test_rev ( void )
 {
   // Sign on
-  cout << "**** Linked List Class Test - list reverse" << endl; 
+  cout << "**** Linked List Class Test Template - list reverse" << endl; 
 
-  linked_list revTest1;
-  linked_list revTest2;
-  linked_list revTest3;  
+  linked_list<int> revTest1;
+  linked_list<int> revTest2;
+  linked_list<int> revTest3;  
 
   /*
    * Test01 - single element
@@ -70,7 +70,7 @@ int test_rev ( void )
   cout << "\tTest01 - rev single element" << endl;
   revTest1.list_add_element(1);
   revTest1.list_reverse();  
-  revTest1.list_dump();
+  revTest1.list_show();
 
   /*
    * Test02 - mulitple elements
@@ -82,9 +82,9 @@ int test_rev ( void )
   revTest2.list_add_element(4);
   revTest2.list_add_element(5);      
   cout << "\tNumber in list before reverse = " << revTest2.list_size() << endl;  
-  revTest2.list_dump();
+  revTest2.list_show();
   revTest2.list_reverse();  
-  revTest2.list_dump();
+  revTest2.list_show();
 
   /*
    * Test03 - no elements

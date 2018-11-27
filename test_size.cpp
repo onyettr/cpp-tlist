@@ -58,12 +58,12 @@ Prototypes of all functions contained in this file (in order of occurance)
 int test_size ( void )
 {
   // Sign on
-  cout << "**** Linked List Class Test - size" << endl; 
+  cout << "**** Linked List Class Test Template - size" << endl; 
 
   /*
    * create a new list
    */ 
-  linked_list SizeTest;
+  linked_list<int> SizeTest;
   
   cout << "\tTest01 - size on empty list " << SizeTest.list_size() << endl;
 

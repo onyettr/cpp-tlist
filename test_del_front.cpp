@@ -58,12 +58,12 @@ Prototypes of all functions contained in this file (in order of occurance)
 int test_del_front ( void )
 {
   // Sign on
-  cout << "**** Linked List Class Test - deletion front" << endl; 
+  cout << "**** Linked List Class Test Template - deletion front" << endl; 
 
   /*
    * create a new list
    */ 
-  linked_list delTest;
+  linked_list<int> delTest;
   
   /*
    * Add an element
@@ -73,15 +73,15 @@ int test_del_front ( void )
   delTest.list_add_element(204);
   delTest.list_add_element(205);    
   cout << "\tNumber in list before deletion = " << delTest.list_size() << endl;  
-  delTest.list_dump();
+  delTest.list_show();
 
   cout << "\tTest01 - delete front element" << endl;
   delTest.list_delete_front();
   cout << "\tNumber in list after deletion at 1  = " << delTest.list_size() << endl;    
-  delTest.list_dump();
+  delTest.list_show();
 
   cout << "\tTest02 - delete front element, exception to be thrown - empty list" << endl;
-  linked_list delTest02;
+  linked_list<int> delTest02;
   try {
     delTest02.list_delete_front();    
   } catch (std::runtime_error& e) {
