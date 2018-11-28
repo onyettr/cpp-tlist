@@ -76,6 +76,7 @@ int main ( void )
   test_del_back();
   test_del_front();
   test_empty();
+  test_clear();
 }
 
 //

@@ -88,6 +88,7 @@ class linked_list {
     void list_delete_element(int position);               // Delete element  at position, decreases list size by 1
     void list_delete_front(void);                         // Delete first element of list, decreases list size by 1
     void list_delete_back (void);                         // Delete last  element of list, decreases list size by 1
+    void list_clear       (void);                         // Delete all elements of list, decreases list size to 0
     void list_reverse     (void);                         // Reverse the contents of list
     int  list_search      (const T& value);               // Search list for value, return position
     void list_sort        (void);                         // Sort the list

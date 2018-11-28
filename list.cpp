@@ -367,6 +367,51 @@ void linked_list<T>::list_add_at_back(const T& value) {
 }
 
 /**
+ * @fn        void linked_list::list_clear(void)
+ * @brief     Remove all list elements from a list
+ * @param[in]  
+ * @return    none
+ * @details   
+ * @throws    std::runtime_error
+ * @note
+ */
+template <class T>
+void linked_list<T>::list_clear (void) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_clear called "  << endl;
+#endif
+  list_element_t *pCurrent;
+  list_element_t *pNext;
+
+  /*
+   * List is empty?
+   */
+  if (list_size() == 0) {
+     throw std::runtime_error("linked_list::list_clear - list is empty");
+
+     return;
+  }
+  
+  /*
+   * From beginning of the list, move to the "next" and delete
+   */
+  pCurrent = GetListHead();
+
+  while (pCurrent != nullptr ) {
+     pNext = pCurrent->pNext;
+     delete [] pCurrent;
+     pCurrent = pNext;
+     list_count--;
+  }
+
+  /*
+   * reset the Head and Tail, cleanup for the descrtuctor
+   */
+  pHead = nullptr;
+  pTail = nullptr;
+}
+
+/**
  * @fn        void linked_list::list_delete_element(int position)
  *
  * @brief     Remove a list element

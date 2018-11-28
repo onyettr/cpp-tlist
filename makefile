@@ -31,16 +31,17 @@ LIST_OBJS = 				\
 
 TEST_OBJS = 				\
 	$(OBJECT_DIR)/test_add.o	\
-	$(OBJECT_DIR)/test_back.o	\
 	$(OBJECT_DIR)/test_del.o 	\
 	$(OBJECT_DIR)/test_rev.o 	\
+	$(OBJECT_DIR)/test_back.o	\
 	$(OBJECT_DIR)/test_size.o	\
 	$(OBJECT_DIR)/test_copy.o	\
 	$(OBJECT_DIR)/test_front.o	\
+	$(OBJECT_DIR)/test_clear.o	\
+	$(OBJECT_DIR)/test_empty.o	\
 	$(OBJECT_DIR)/test_search.o	\
 	$(OBJECT_DIR)/test_del_back.o	\
 	$(OBJECT_DIR)/test_del_front.o	\
-	$(OBJECT_DIR)/test_empty.o
 
 LISTLIB = liblist.a
 
@@ -66,7 +67,7 @@ gtest:
 $(OBJECT_DIR):
 	-$(MAKE_DIR_CMD)
 
-list.exe:	$(OBJS) $(LIBS)
+list.exe:	$(OBJS) $(LIBS) list.cpp
 	$(LINK) $(LFLAGS) $(OBJS) -L. -ltest -o list.exe
 
 $(OBJECT_DIR)/main.o:		main.cpp
@@ -78,8 +79,8 @@ libtest.a:	$(TEST_OBJS)
 liblist.a:	$(OBJECT_DIR)/list.o
 	$(AR) $(ARFLAGS) liblist.a $(OBJECT_DIR)/list.o 
 
-$(OBJECT_DIR)/list.o:	list.cpp list.h
-	$(CC) $(CFLAGS) $(DEBUG) list.cpp -o $(OBJECT_DIR)/list.o
+$(OBJECT_DIR)/main.o:		main.cpp 
+	$(CC) $(CFLAGS) $(DEBUG) main.cpp -o $(OBJECT_DIR)/main.o
 
 $(OBJECT_DIR)/test_add.o:	test_add.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_add.cpp -o $(OBJECT_DIR)/test_add.o
@@ -108,6 +109,9 @@ $(OBJECT_DIR)/test_back.o:	test_back.cpp
 $(OBJECT_DIR)/test_front.o:	test_front.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_front.cpp -o $(OBJECT_DIR)/test_front.o
 
+$(OBJECT_DIR)/test_clear.o:	test_clear.cpp
+	$(CC) $(CFLAGS) $(DEBUG) test_clear.cpp -o $(OBJECT_DIR)/test_clear.o
+
 $(OBJECT_DIR)/test_search.o:	test_search.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_search.cpp -o $(OBJECT_DIR)/test_search.o
 
@@ -129,6 +133,7 @@ clean:
 	rm -f $(OBJECT_DIR)/test_back.o
 	rm -f $(OBJECT_DIR)/test_copy.o
 	rm -f $(OBJECT_DIR)/test_front.o
+	rm -f $(OBJECT_DIR)/test_clear.o
 	rm -f $(OBJECT_DIR)/test_empty.o
 	rm -f $(OBJECT_DIR)/test_search.o
 	rm -f $(OBJECT_DIR)/test_del_back.o

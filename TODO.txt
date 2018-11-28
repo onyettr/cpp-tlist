@@ -1,0 +1,34 @@
+* cpp-tlist tasks
+** DONE [PROJ] Convert to Templates
+** TODO [LIST] add list_swap
+** TODO [LIST] list_delete(element)? is this valid?
+** TODO [LIST] Add list_remove element with specific value
+** TODO [LIST] Add list_remove(value)
+** TODO [LIST] Add list_clear to remove all list entries
+** TODO [LIST] iterator suppport list.begin(), list.end()
+** TODO [LIST] list.sort() to be implemented
+** TODO [LIST] Print function should default to std::cout (std::ostream& stream = std::cout) const
+** TODO [LIST] Use pre-increment rather than post increment
+** TODO [LIST] list_empty -> empty (STL)?
+* Issues
+** DONE test_back: Tail looks incorrect for test2 -> FIXED, wrong call in test harness (cut and paste error)
+* Completed
+** DONE [TEST] test harness as library
+** DONE [LIST] Add list_search() returns element number
+** DONE [LIST] Add list_reverse
+** DONE [LIST] list_delete_back()
+** DONE [LIST] list_delete_front()
+** DONE [LIST] Add copy constructor
+** DONE [LIST] list.isEmpty() from STL
+** DONE [LIST] list.size()
+** DONE [LIST] list_add_to_back()
+** DONE [LIST] list.emplace(position, value)
+** DONE [LIST] list_dump - why does it need the pHead? Its already private?
+** DONE [LIST] list_get_back() returns the last list value
+** DONE [LIST] list.get_front() returns the first list value
+** DONE [LIST] Use nullptr (C++11?)
+** DONE [LIST] Add exception throw to the deletion operations
+** DONE [LIST] list.delete(position)
+** DONE [TEST] harness to be split, add exception handling.
+** DONE [LIST] list_get_front - throw exception for empty list
+** DONE [LIST] list_get_front - use empty method to determine list status

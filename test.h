@@ -62,6 +62,7 @@ int test_search(void);
 int test_del_back(void);
 int test_del_front(void);
 int test_empty(void);
+int test_clear(void);
 
 #endif // __TEST_H__
 
