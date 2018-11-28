@@ -70,9 +70,6 @@ $(OBJECT_DIR):
 list.exe:	$(OBJS) $(LIBS) list.cpp
 	$(LINK) $(LFLAGS) $(OBJS) -L. -ltest -o list.exe
 
-$(OBJECT_DIR)/main.o:		main.cpp
-	$(CC) $(CFLAGS) $(DEBUG) main.cpp -o $(OBJECT_DIR)/main.o
-
 libtest.a:	$(TEST_OBJS)
 	$(AR) $(ARFLAGS) libtest.a $(TEST_OBJS)
 
