@@ -107,6 +107,48 @@ linked_list<T>::linked_list(void) {
 }
 
 /**
+ * @fn        linked_list::linked_list(size_t n)
+ * @brief     linked_list constructor with fill
+ * @param[in] n - number of elements
+ * @return    none
+ * @note      constructor create n nodes and fills with zero
+ */
+template <class T>
+linked_list<T>::linked_list(int n) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: Basic n Fill Constructor called"  << endl;  
+#endif
+
+  pHead = nullptr;
+  pTail = nullptr;
+
+  for (auto i=0; i < (int)n; i++) {
+     list_add_element(0);
+  }
+}
+
+/**
+ * @fn        linked_list::linked_list(size_t n, const value_type& val)
+ * @brief     linked_list constructor with fill
+ * @param     
+ * @return    none
+ * @note      constructor create n nodes and fills with value
+ */
+template <class T>
+linked_list<T>::linked_list(int n, const T& val) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: Basic Fill Constructor called"  << endl;  
+#endif
+
+  pHead = nullptr;
+  pTail = nullptr;
+
+  for (auto i=0; i < (int)n; i++) {
+     list_add_element(val);
+  }
+}
+
+/**
  * @fn        linked_list::linked_list(const linked_list& srcCopyList) {
  *
  * @brief     Copy constructor
@@ -412,6 +454,48 @@ void linked_list<T>::list_clear (void) {
 }
 
 /**
+ * @fn        void linked_list::list_assign(int n, const value_type &T)
+ * @brief     assign (fill) n elements of the list with value
+ * @param[in] n - number of list elements
+ * @param[in] value - what to fill
+ * @return    none
+ * @details   
+ * @throws    std::runtime_error is list is empty
+ * @note
+ */
+template <class T>
+void linked_list<T>::list_assign (int n, const T& value) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_assign called "  << endl;
+#endif
+
+  /*
+   * List is empty?
+   */
+  if (list_size() == 0) {
+     throw std::runtime_error("linked_list::list_assign - list is empty");
+
+     return;
+  }
+
+  /*
+   * List is not long enough to fill?
+   */
+  if ( n > list_size()) {
+     throw std::runtime_error("linked_list::list_assign - list is not large enough to fill");
+
+     return;
+  }
+
+  list_element_t *pCurrent = GetListHead();
+  for (auto i=0; i < (int)n; i++) {
+    pCurrent->element = value;
+    pCurrent = pCurrent->pNext;
+  }
+  
+}
+
+/**
  * @fn        void linked_list::list_delete_element(int position)
  *
  * @brief     Remove a list element
@@ -430,7 +514,6 @@ void linked_list<T>::list_delete_element (int position) {
   cout << "<" << this << ">TRACE: list_delete_element " << position << " called "  << endl;  
 #endif
     list_element_t *pCurrent;
-    list_element_t *pPrevious;
 
     /*
      * Test if the position element is legal
@@ -451,6 +534,8 @@ void linked_list<T>::list_delete_element (int position) {
        pHead = pCurrent->pNext;              /* Update the Head pointer as position zero is deleted */
        pCurrent->pNext = nullptr;
     } else {
+      list_element_t *pPrevious;
+      
       for (auto i=0; i < position; i++) {
          pPrevious = pCurrent;
          pCurrent = pCurrent->pNext;

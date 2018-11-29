@@ -33,15 +33,17 @@ TEST_OBJS = 				\
 	$(OBJECT_DIR)/test_add.o	\
 	$(OBJECT_DIR)/test_del.o 	\
 	$(OBJECT_DIR)/test_rev.o 	\
+	$(OBJECT_DIR)/test_cons.o	\
 	$(OBJECT_DIR)/test_back.o	\
 	$(OBJECT_DIR)/test_size.o	\
 	$(OBJECT_DIR)/test_copy.o	\
 	$(OBJECT_DIR)/test_front.o	\
 	$(OBJECT_DIR)/test_clear.o	\
 	$(OBJECT_DIR)/test_empty.o	\
+	$(OBJECT_DIR)/test_assign.o	\
 	$(OBJECT_DIR)/test_search.o	\
 	$(OBJECT_DIR)/test_del_back.o	\
-	$(OBJECT_DIR)/test_del_front.o	\
+	$(OBJECT_DIR)/test_del_front.o	
 
 LISTLIB = liblist.a
 
@@ -82,6 +84,9 @@ $(OBJECT_DIR)/main.o:		main.cpp
 $(OBJECT_DIR)/test_add.o:	test_add.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_add.cpp -o $(OBJECT_DIR)/test_add.o
 
+$(OBJECT_DIR)/test_cons.o:	test_cons.cpp
+	$(CC) $(CFLAGS) $(DEBUG) test_cons.cpp -o $(OBJECT_DIR)/test_cons.o
+
 $(OBJECT_DIR)/test_del.o:	test_del.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_del.cpp -o $(OBJECT_DIR)/test_del.o
 
@@ -109,6 +114,9 @@ $(OBJECT_DIR)/test_front.o:	test_front.cpp
 $(OBJECT_DIR)/test_clear.o:	test_clear.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_clear.cpp -o $(OBJECT_DIR)/test_clear.o
 
+$(OBJECT_DIR)/test_assign.o:	test_assign.cpp
+	$(CC) $(CFLAGS) $(DEBUG) test_assign.cpp -o $(OBJECT_DIR)/test_assign.o
+
 $(OBJECT_DIR)/test_search.o:	test_search.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_search.cpp -o $(OBJECT_DIR)/test_search.o
 
@@ -126,6 +134,7 @@ clean:
 	rm -f $(OBJECT_DIR)/test_add.o
 	rm -f $(OBJECT_DIR)/test_del.o
 	rm -f $(OBJECT_DIR)/test_rev.o
+	rm -f $(OBJECT_DIR)/test_cons.o
 	rm -f $(OBJECT_DIR)/test_size.o
 	rm -f $(OBJECT_DIR)/test_back.o
 	rm -f $(OBJECT_DIR)/test_copy.o
@@ -133,6 +142,7 @@ clean:
 	rm -f $(OBJECT_DIR)/test_clear.o
 	rm -f $(OBJECT_DIR)/test_empty.o
 	rm -f $(OBJECT_DIR)/test_search.o
+	rm -f $(OBJECT_DIR)/test_assign.o
 	rm -f $(OBJECT_DIR)/test_del_back.o
 	rm -f $(OBJECT_DIR)/test_del_front.o
 	rm -f $(OBJECT_DIR)/poortool.o

@@ -1,5 +1,9 @@
 * cpp-tlist tasks
-** DONE [PROJ] Convert to Templates
+** TODO [LIST] add new constructor with size only
+** TODO [LIST] add begin and end iterators
+** DONE [LIST] add assign(size_t, const value& T)
+** TODO [LIST] add remove(const value& T) 
+** TODO [LIST] add remove_if (Predicate pred)
 ** TODO [LIST] add list_swap
 ** TODO [LIST] list_delete(element)? is this valid?
 ** TODO [LIST] Add list_remove element with specific value
@@ -13,6 +17,8 @@
 * Issues
 ** DONE test_back: Tail looks incorrect for test2 -> FIXED, wrong call in test harness (cut and paste error)
 * Completed
+** DONE [PROJ] Convert to Templates
+** DONE [LIST] add list_add(size, value) to constructor
 ** DONE [TEST] test harness as library
 ** DONE [LIST] Add list_search() returns element number
 ** DONE [LIST] Add list_reverse

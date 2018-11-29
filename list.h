@@ -74,10 +74,13 @@ class linked_list {
   
     public:
         linked_list(void);                /*! linked list constructor      */
+        linked_list(int number);          /*! linked list fill constructor n elememts, assigned 0 */
         linked_list(const linked_list &); /*! linked list copy constructor */
+        linked_list(int number, const T&);/*! linked list fill constructor n elements, assigned T */
         ~linked_list(void);               /*! linked list destructor       */  
 
     // Member functions
+    void list_assign      (int n, const T& value);        // Assign (fill) n elemnts to value
     void list_add_element (const T& value);               // Add an element to the list, increases list size by 1
     void list_add_at_front(const T& value);               // Add an element to the front of the list, increases list size by 1
     void list_add_at_back (const T& value);               // Add an element to the back  of the list, increases list size by 1

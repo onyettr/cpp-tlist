@@ -22,7 +22,7 @@ class LinkedListTest : public testing::Test {
  * @brief Linked List Test SIZE list empty
  */
 TEST_F(LinkedListTest, ListSizeIsZero) {
-  linked_list SizeTest;
+  linked_list<int> SizeTest;
 
   EXPECT_EQ(0, SizeTest.list_size());
 }
@@ -31,7 +31,7 @@ TEST_F(LinkedListTest, ListSizeIsZero) {
  * @brief Linked List Test SIZE one element
  */
 TEST_F(LinkedListTest, ListSizeIsOne) {
-  linked_list SizeTest;
+  linked_list<int> SizeTest;
 
   SizeTest.list_add_element(100);
 
@@ -42,7 +42,7 @@ TEST_F(LinkedListTest, ListSizeIsOne) {
  * @brief Linked List Test list_empty TRUE
  */
 TEST_F(LinkedListTest, ListIsEmpty) {
-  linked_list EmptyTest;
+  linked_list<int> EmptyTest;
 
   EXPECT_TRUE(EmptyTest.list_empty());
 }
@@ -51,7 +51,7 @@ TEST_F(LinkedListTest, ListIsEmpty) {
  * @brief Linked List Test list_empty FALSE
  */
 TEST_F(LinkedListTest, ListIsNotEmpty) {
-  linked_list EmptyTest;
+  linked_list<int> EmptyTest;
 
   EmptyTest.list_add_element(101);
   EXPECT_FALSE(EmptyTest.list_empty());
@@ -61,7 +61,7 @@ TEST_F(LinkedListTest, ListIsNotEmpty) {
  * @brief Tests - front list is empty
  */
 TEST_F(LinkedListTest, ListFrontEmpty) {
-  linked_list EmptyTest;
+  linked_list<int> EmptyTest;
 
   try {
     EmptyTest.list_get_front();
@@ -80,7 +80,7 @@ TEST_F(LinkedListTest, ListFrontEmpty) {
  * @brief Tests - front list is ok
  */
 TEST_F(LinkedListTest, ListFrontOneElement) {
-  linked_list FrontTest;
+  linked_list<int> FrontTest;
 
   FrontTest.list_add_element(200);
   EXPECT_EQ(200,FrontTest.list_get_front());
@@ -90,7 +90,7 @@ TEST_F(LinkedListTest, ListFrontOneElement) {
  * @brief Tests - front list is ok
  */
 TEST_F(LinkedListTest, ListFrontTwoElement) {
-  linked_list FrontTest;
+  linked_list<int> FrontTest;
 
   FrontTest.list_add_element(200);
   FrontTest.list_add_element(300);  
@@ -101,7 +101,7 @@ TEST_F(LinkedListTest, ListFrontTwoElement) {
  * @brief Tests - front list is ok
  */
 TEST_F(LinkedListTest, ListFrontExplicit) {
-  linked_list FrontTest;
+  linked_list<int> FrontTest;
 
   FrontTest.list_add_element(200);
   FrontTest.list_add_element(300);
@@ -113,7 +113,7 @@ TEST_F(LinkedListTest, ListFrontExplicit) {
  * @brief Tests - back list is empty
  */
 TEST_F(LinkedListTest, ListBackEmpty) {
-  linked_list BackTest;
+  linked_list<int> BackTest;
 
   try {
     BackTest.list_get_back();
@@ -132,7 +132,7 @@ TEST_F(LinkedListTest, ListBackEmpty) {
  * @brief Tests - back list is ok
  */
 TEST_F(LinkedListTest, ListTailOneElement) {
-  linked_list BackTest;
+  linked_list<int> BackTest;
 
   BackTest.list_add_element(201);
   EXPECT_EQ(201,BackTest.list_get_back());
@@ -142,7 +142,7 @@ TEST_F(LinkedListTest, ListTailOneElement) {
  * @brief Tests - back list is ok
  */
 TEST_F(LinkedListTest, ListTailTwoElement) {
-  linked_list BackTest;
+  linked_list<int> BackTest;
 
   BackTest.list_add_element(201);
   BackTest.list_add_element(301);  
@@ -153,7 +153,7 @@ TEST_F(LinkedListTest, ListTailTwoElement) {
  * @brief Tests - back list is ok
  */
 TEST_F(LinkedListTest, ListTailExplicitAddAtBack) {
-  linked_list BackTest;
+  linked_list<int> BackTest;
 
   BackTest.list_add_element(200);
   BackTest.list_add_element(300);
@@ -165,7 +165,7 @@ TEST_F(LinkedListTest, ListTailExplicitAddAtBack) {
  * @brief Tests - add list is ok
  */
 TEST_F(LinkedListTest, ListAddOneElement) {
-  linked_list AddTest;
+  linked_list<int> AddTest;
 
   AddTest.list_add_element(10);
   EXPECT_EQ(1,AddTest.list_size());
@@ -175,7 +175,7 @@ TEST_F(LinkedListTest, ListAddOneElement) {
  * @brief Tests - add more list is ok
  */
 TEST_F(LinkedListTest, ListAddFourElement) {
-  linked_list AddTest;
+  linked_list<int> AddTest;
 
   AddTest.list_add_element(1);
   AddTest.list_add_element(2);
@@ -188,7 +188,7 @@ TEST_F(LinkedListTest, ListAddFourElement) {
  * @brief Tests - add at position
  */
 TEST_F(LinkedListTest, ListAddAtPosition) {
-  linked_list AddTest;
+  linked_list<int> AddTest;
 
   AddTest.list_add_element(1);
   AddTest.list_add_element(2);
@@ -203,7 +203,7 @@ TEST_F(LinkedListTest, ListAddAtPosition) {
  * @brief Tests - Get at position
  */
 TEST_F(LinkedListTest, ListGetAtPosition) {
-  linked_list AddTest;
+  linked_list<int> AddTest;
 
   AddTest.list_add_element(1);
   AddTest.list_add_element(2);
@@ -219,7 +219,7 @@ TEST_F(LinkedListTest, ListGetAtPosition) {
  * @brief Tests - get list is empty
  */
 TEST_F(LinkedListTest, ListGetEmpty) {
-  linked_list GetTest;
+  linked_list<int> GetTest;
 
   try {
     GetTest.list_get_position(1);
@@ -254,7 +254,7 @@ TEST_F(LinkedListTest, ListDeleteOneElement) {
  * @brief Tests - Delete test at Position
  */
 TEST_F(LinkedListTest, ListDeleteElementAtPosition) {
-  linked_list DelTest;
+  linked_list<int> DelTest;
 
   DelTest.list_add_element(202);
   DelTest.list_add_element(203);
@@ -268,15 +268,15 @@ TEST_F(LinkedListTest, ListDeleteElementAtPosition) {
  * @brief Tests - Delete test FRONT via Position
  */
 TEST_F(LinkedListTest, ListDeleteElementFirstPosition) {
-  linked_list DelTest;
+  linked_list<int> DelTest;
 
   DelTest.list_add_element(202);
   DelTest.list_add_element(203);
   DelTest.list_add_element(204);
   DelTest.list_add_element(205);
-  DelTest.list_dump();  
+  DelTest.list_show();  
   DelTest.list_delete_element(0);
-  DelTest.list_dump();
+  DelTest.list_show();
   EXPECT_EQ(203, DelTest.list_get_position(0));
 }
 
@@ -284,15 +284,15 @@ TEST_F(LinkedListTest, ListDeleteElementFirstPosition) {
  * @brief Tests - Delete test FRONT via direct method
  */
 TEST_F(LinkedListTest, ListDeleteElementFront) {
-  linked_list DelTest;
+  linked_list<int> DelTest;
 
   DelTest.list_add_element(202);
   DelTest.list_add_element(203);
   DelTest.list_add_element(204);
   DelTest.list_add_element(205);
-  DelTest.list_dump();  
+  DelTest.list_show();  
   DelTest.list_delete_front();
-  DelTest.list_dump();
+  DelTest.list_show();
   EXPECT_EQ(203, DelTest.list_get_position(0));
 }
 
@@ -300,7 +300,7 @@ TEST_F(LinkedListTest, ListDeleteElementFront) {
  * @brief Tests - Delete front empty list
  */
 TEST_F(LinkedListTest, ListDeleteFrontEmpty) {
-  linked_list DelTest;
+  linked_list<int> DelTest;
 
   try {
      DelTest.list_delete_front();
@@ -319,14 +319,14 @@ TEST_F(LinkedListTest, ListDeleteFrontEmpty) {
  * @brief Tests - Delete test BACK via direct method
  */
 TEST_F(LinkedListTest, ListDeleteElementBack) {
-  linked_list DelTest;
+  linked_list<int> DelTest;
 
   DelTest.list_add_element(101);
   DelTest.list_add_element(102);
   DelTest.list_add_element(103);
-  DelTest.list_dump();  
+  DelTest.list_show();  
   DelTest.list_delete_back();
-  DelTest.list_dump();
+  DelTest.list_show();
   EXPECT_EQ(102, DelTest.list_get_back());
 }
 
@@ -334,7 +334,7 @@ TEST_F(LinkedListTest, ListDeleteElementBack) {
  * @brief Tests - Delete back empty list
  */
 TEST_F(LinkedListTest, ListDeleteBackEmpty) {
-  linked_list DelTest;
+  linked_list<int> DelTest;
 
   try {
      DelTest.list_delete_back();
@@ -353,20 +353,55 @@ TEST_F(LinkedListTest, ListDeleteBackEmpty) {
  * @brief Tests - Delete back one element
  */
 TEST_F(LinkedListTest, ListDeleteBackOneElement) {
-  linked_list DelTest;
+  linked_list<int> DelTest;
 
   DelTest.list_add_element(200);
-  DelTest.list_dump();  
+  DelTest.list_show();  
   DelTest.list_delete_back();
-  DelTest.list_dump();
+  DelTest.list_show();
   EXPECT_EQ(0, DelTest.list_size());
 }
 
 /**
+ * @brief Tests - clear negative, empty list
+ */
+TEST_F(LinkedListTest, ListClearOnEmpty) {
+  linked_list<int> ClearTest;
+
+  try {
+     ClearTest.list_clear();
+  }
+  catch (std::runtime_error& e) {
+    SUCCEED();
+    return;
+  }
+  catch (...) {
+    FAIL() << "odd exception?";
+  }
+  ADD_FAILURE() << "Exception not thrown as expected";
+}
+
+/**
+ * @brief Tests - clear positive
+ */
+TEST_F(LinkedListTest, ListClearPositive) {
+  linked_list<int> delTest;
+  
+  delTest.list_add_element(302);
+  delTest.list_add_element(403);
+  delTest.list_add_element(504);
+  delTest.list_add_element(605);    
+
+  delTest.list_clear();
+  EXPECT_EQ(0, delTest.list_size());
+}
+  
+/**
  * @brief Tests - reverse mutiple element
  */
 TEST_F(LinkedListTest, ListReverseMutipleElement) {
-  linked_list revTest2;
+  linked_list<int> revTest2;
+  
   revTest2.list_add_element(1);
   revTest2.list_add_element(2);
   revTest2.list_add_element(3);
@@ -381,7 +416,7 @@ TEST_F(LinkedListTest, ListReverseMutipleElement) {
  * @brief Tests - reverse zero element
  */
 TEST_F(LinkedListTest, ListReverseZeroElement) {
-  linked_list revTest3;
+  linked_list<int> revTest3;
 
   try {
      revTest3.list_reverse();
@@ -400,7 +435,7 @@ TEST_F(LinkedListTest, ListReverseZeroElement) {
  * @brief Tests - search one element, postive
  */
 TEST_F(LinkedListTest, ListSearchOneElementPositive) {
-  linked_list srcTest;
+  linked_list<int> srcTest;
 
   srcTest.list_add_element(101);
   EXPECT_EQ(0, srcTest.list_search(101));
@@ -410,7 +445,7 @@ TEST_F(LinkedListTest, ListSearchOneElementPositive) {
  * @brief Tests - search one element, negative
  */
 TEST_F(LinkedListTest, ListSearchOneElementNegative) {
-  linked_list srcTest;
+  linked_list<int> srcTest;
 
   srcTest.list_add_element(101);
   EXPECT_EQ(-1, srcTest.list_search(102));
@@ -420,7 +455,7 @@ TEST_F(LinkedListTest, ListSearchOneElementNegative) {
  * @brief Tests - search multiple element, postive
  */
 TEST_F(LinkedListTest, ListSearchMultiElementPositive) {
-  linked_list serTest2;
+  linked_list<int> serTest2;
 
   serTest2.list_add_element(1);
   serTest2.list_add_element(2);
@@ -434,7 +469,7 @@ TEST_F(LinkedListTest, ListSearchMultiElementPositive) {
  * @brief Tests - search multiple element, negative
  */
 TEST_F(LinkedListTest, ListSearchMultiElementNegative) {
-  linked_list serTest2;
+  linked_list<int> serTest2;
 
   serTest2.list_add_element(1);
   serTest2.list_add_element(2);
@@ -448,7 +483,7 @@ TEST_F(LinkedListTest, ListSearchMultiElementNegative) {
  * @brief Tests - search empty list
  */
 TEST_F(LinkedListTest, ListSearchZeroElement) {
-  linked_list serTest3;
+  linked_list<int> serTest3;
 
   try {
      serTest3.list_search(101);
@@ -467,19 +502,99 @@ TEST_F(LinkedListTest, ListSearchZeroElement) {
  * @brief Tests - Copy test
  */
 TEST_F(LinkedListTest, ListCopyList) {
-  linked_list srcCopyTest;
+  linked_list<int> srcCopyTest;
 
   srcCopyTest.list_add_element(100);
   srcCopyTest.list_add_element(101);
   srcCopyTest.list_add_element(102);
   srcCopyTest.list_add_element(103);
   srcCopyTest.list_add_element(104);
-  srcCopyTest.list_dump();
+  srcCopyTest.list_show();
   
-  linked_list dstCopyTest = srcCopyTest;
-  dstCopyTest.list_dump();      
+  linked_list<int> dstCopyTest = srcCopyTest;
+  dstCopyTest.list_show();      
 
   EXPECT_EQ(5, dstCopyTest.list_size());
+}
+
+/**
+ * @brief Tests - constructor fill test
+ */
+TEST_F(LinkedListTest, ListCtorFill) {
+  linked_list<int> consTest_Fill(4, 1001);
+  
+  EXPECT_EQ(4, consTest_Fill.list_size());
+}
+
+/**
+ * @brief Tests - constructor fill test
+ */
+TEST_F(LinkedListTest, ListCtorFillZero) {
+  linked_list<int> consTest_Fill(4);
+  
+  EXPECT_EQ(4, consTest_Fill.list_size());
+}
+  
+/**
+ * @brief Tests - assign test, negative empty 
+ */
+TEST_F(LinkedListTest, ListAssignEmpty) {
+  linked_list<int> assignEmpty;
+
+  try {
+     assignEmpty.list_assign(7,100);
+  }
+  catch (std::runtime_error& e) {
+    SUCCEED();
+    return;
+  }
+  catch (...) {
+    FAIL() << "odd exception?";
+  }
+  ADD_FAILURE() << "Exception not thrown as expected";
+}
+
+/**
+ * @brief Tests - assign test, negative not enough room
+ */
+TEST_F(LinkedListTest, ListAssignSize) {
+  linked_list<int> assignEmpty;
+
+  assignEmpty.list_add_element(200);
+  try {
+     assignEmpty.list_assign(7,100);
+  }
+  catch (std::runtime_error& e) {
+    SUCCEED();
+    return;
+  }
+  catch (...) {
+    FAIL() << "odd exception?";
+  }
+  ADD_FAILURE() << "Exception not thrown as expected";
+}
+
+/**
+ * @brief Tests - assign test, positive
+ */
+TEST_F(LinkedListTest, ListAssignPass) {
+  linked_list<int> assignTest;
+
+  assignTest.list_add_element(200);
+  assignTest.list_add_element(200);
+  assignTest.list_add_element(200);
+  assignTest.list_add_element(200);
+  assignTest.list_add_element(200);
+  assignTest.list_add_element(200);
+  assignTest.list_add_element(200);
+  assignTest.list_add_element(200);
+  assignTest.list_add_element(200);
+  assignTest.list_add_element(200);
+
+  assignTest.list_assign(7, 100);
+  assignTest.list_show();
+
+  EXPECT_EQ(100, assignTest.list_get_front());  
 }
   
 }
