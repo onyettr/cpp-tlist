@@ -56,7 +56,7 @@ LIBS  	= $(TESTLIB)
 # all	Creates object directory, builds executable and runs checker
 # lib	Build only the list library, no test harness
 #*******************************************************************************
-all:	$(OBJECT_DIR) list.exe splint-me gtest
+all:	$(OBJECT_DIR) list.exe example splint-me gtest 
 
 lib:	$(LIBS)
 
@@ -77,6 +77,17 @@ libtest.a:	$(TEST_OBJS)
 
 liblist.a:	$(OBJECT_DIR)/list.o
 	$(AR) $(ARFLAGS) liblist.a $(OBJECT_DIR)/list.o 
+
+#
+# Example use cases
+#
+example: 	stack.exe
+
+stack.exe:	$(OBJECT_DIR)/stack.o list.h list.cpp
+	$(LINK) $(LFLAGS) $(OBJECT_DIR)/stack.o -o stack.exe
+
+$(OBJECT_DIR)/stack.o:		stack.cpp list.h
+	$(CC) $(CFLAGS) $(DEBUG) stack.cpp -o $(OBJECT_DIR)/stack.o
 
 $(OBJECT_DIR)/main.o:		main.cpp 
 	$(CC) $(CFLAGS) $(DEBUG) main.cpp -o $(OBJECT_DIR)/main.o
@@ -128,6 +139,7 @@ $(OBJECT_DIR)/poortool.o:	poortool.c
 
 clean:
 	rm -f list.exe
+	rm -f stack.exe
 	rm -f libtest.a
 	rm -f $(OBJECT_DIR)/list.o
 	rm -f $(OBJECT_DIR)/main.o
@@ -146,6 +158,7 @@ clean:
 	rm -f $(OBJECT_DIR)/test_del_back.o
 	rm -f $(OBJECT_DIR)/test_del_front.o
 	rm -f $(OBJECT_DIR)/poortool.o
+	rm -f $(OBJECT_DIR)/stack.o
 	rm -f core
 
 #

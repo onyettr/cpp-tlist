@@ -71,12 +71,13 @@ class linked_list {
       list_element_t *pHead;              // Head of the Linked List
       list_element_t *pTail;              // Tail of the Linked List
       int list_count = 0;                 // Number of nodes or Elements in the list
+      int max_list_size = 0;              // If size if provided
   
     public:
-        linked_list(void);                /*! linked list constructor      */
-        linked_list(int number);          /*! linked list fill constructor n elememts, assigned 0 */
-        linked_list(const linked_list &); /*! linked list copy constructor */
-        linked_list(int number, const T&);/*! linked list fill constructor n elements, assigned T */
+        linked_list(void);                /*! linked list constructor creates empty container           */
+        linked_list(int number);          /*! linked list fill constructor n elememts, assigned 0       */
+        linked_list(const linked_list &); /*! linked list copy constructor creates copy of each element */
+        linked_list(int number, const T&);/*! linked list fill constructor n elements, assigned T       */
         ~linked_list(void);               /*! linked list destructor       */  
 
         // Member functions
@@ -87,7 +88,9 @@ class linked_list {
         void list_add_position(int position, const T& value); // Add an element at position,increases list size by 1
         T    list_get_position(int position);                 // return value at "position"
         T    list_get_front   (void);                         // return value of first list element
-        T    list_get_back    (void);                         // return value of tail list element
+        T    list_get_back    (void);                         // return value of tail list element 
+        T    list_pop_back    (void);                         // Removes last  element in the container, reduces size by 1 
+        T    list_pop_front   (void);                         // Removes first element in the container, reduces size by 1
         void list_delete_element(int position);               // Delete element  at position, decreases list size by 1
         void list_delete_front(void);                         // Delete first element of list, decreases list size by 1
         void list_delete_back (void);                         // Delete last  element of list, decreases list size by 1

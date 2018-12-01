@@ -121,7 +121,8 @@ linked_list<T>::linked_list(int n) {
 
   pHead = nullptr;
   pTail = nullptr;
-
+  max_list_size = n;
+  
   for (auto i=0; i < (int)n; i++) {
      list_add_element(0);
   }
@@ -142,7 +143,8 @@ linked_list<T>::linked_list(int n, const T& val) {
 
   pHead = nullptr;
   pTail = nullptr;
-
+  max_list_size = n;
+  
   for (auto i=0; i < (int)n; i++) {
      list_add_element(val);
   }
@@ -237,6 +239,12 @@ void linked_list<T>::list_add_element (const T& value) {
 #endif
   list_element_t *Temp;
 
+  if (list_size() >  max_list_size) {
+    throw std::runtime_error("linked_list::list_add_element - maximum list size exceeded");
+
+    return;
+  }
+  
   /*
    * Create a new element for the list
    */
@@ -267,6 +275,7 @@ void linked_list<T>::list_add_element (const T& value) {
     pTail = pTail->pNext;
   }
   list_count++;        /* Increment the number of items in the list */
+
 #if defined (DEBUG_TRACE)  
   cout << "<" << this << ">TRACE: list_add_element Head " << pHead << endl;  
   cout << "<" << this << ">TRACE: list_add_element Tail " << pTail << endl;
@@ -275,14 +284,10 @@ void linked_list<T>::list_add_element (const T& value) {
 
 /**
  * @fn        void linked_list::list_add_position(int position, const T& value)
- *
  * @brief     Add a new list element at Position in the list
- *
  * @param[in] position   Place to insert the new element
  * @param[in] value      element  
- *
  * @return    none
- *
  * @note      This will insert at Position. 
  */
 template <class T>
@@ -339,6 +344,15 @@ void linked_list<T>::list_add_at_front(const T& value) {
     list_element_t *Temp;
 
     /*
+     * Test if we have a max size already
+     */
+    if (list_size() >  max_list_size) {
+      throw std::runtime_error("linked_list::list_add_at_front - maximum list size exceeded");
+
+      return;
+    }
+
+    /*
      * Create a new element for the list
      */
     try {
@@ -380,6 +394,15 @@ void linked_list<T>::list_add_at_back(const T& value) {
     cout << "<" << this << ">TRACE: list_add_to_back called "  << endl;  
 #endif
     list_element_t *Temp;
+
+    /*
+     * Test if we have a max size already
+     */
+    if (list_size() >  max_list_size) {
+      throw std::runtime_error("linked_list::list_add_at_front - maximum list size exceeded");
+
+      return;
+    }
 
     /*
      * Create a new element for the list
@@ -451,6 +474,46 @@ void linked_list<T>::list_clear (void) {
    */
   pHead = nullptr;
   pTail = nullptr;
+}
+
+/**
+ * @fn        T linked_list::list_get_position(int position)
+ * @brief     return value at position
+ * @param[in] position - which element?
+ * @return    value
+ * @details   
+ * @throws    std::runtime_error
+ * @note
+ */
+template <class T>
+T linked_list<T>::list_get_position (int position) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_get_position called @ " << position << endl;
+#endif
+  list_element_t *pCurrent;
+  T value;
+  
+  /*
+   * List is empty?
+   */
+  if (list_size() == 0) {
+     throw std::runtime_error("linked_list::list_get_position - list is empty");
+  }
+
+  /* 
+   * traverse list until the position is found
+   */
+  pCurrent = GetListHead();
+  for (int i=1; i < position; i++) {
+    pCurrent = pCurrent->pNext;
+  }
+
+  /*
+   * TODO Check for null here
+   */
+  value = pCurrent->element;
+
+  return value;
 }
 
 /**
@@ -785,39 +848,52 @@ T linked_list<T>::list_get_back(void) {
 }
 
 /**
- * @fn        void linked_list::list_get_position(int position)
- *
- * @brief     return value at Position
- *
- * @param[in] position -  Position of Element to return
- *
- * @return    T value
- *
- * @note      This will return value at Position. 
+ * @fn        int linked_list::list_pop_back(void)
+ * @brief     return the back/tail list value and delete the element
+ * @param[in] none
+ * @return    <T> (int)   back list value
+ * @note
  */
 template <class T>
-T linked_list<T>::list_get_position(int position) {
+T linked_list<T>::list_pop_back(void) {
+   T value;
 #if defined ( DEBUG_TRACE )
-  cout << "<" << this << ">TRACE: list_get_position called "  << endl;  
+   cout << "<" << this << ">TRACE: list_pop_back called "  << endl;  
 #endif
-  list_element_t *pCurrent;
+
+   if (list_count == 0) {
+      throw std::runtime_error("linked_list::list_pop_back - list is empty");    
+   }
+   else {
+      value = pTail->element;
+   }
+
+   list_delete_back();
+   
+   return value;
+}
+
+/**
+ * @fn        void linked_list::list_pop_front(void)
+ * @brief     removes first element 
+ * @param[in] 
+ * @return    none
+ * @note      Reduces the list by 1
+ */
+template <class T>
+T linked_list<T>::list_pop_front(void) {
   T value;
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_pop_front called "  << endl;  
+#endif
 
   if (list_empty()) {
-     throw std::runtime_error("linked_list::list_get_front - list is empty");
-     return value;
+    throw std::runtime_error("linked_list::list_pop_back - list is empty");        
+  } else {
+      value = pHead->element;    
   }
 
-  /*
-   * Traverse the list until we get to position
-   */
-  pCurrent = pHead;  /* Start of the list */
-  for (int i=1; i < position; i++) {
-     pCurrent = pCurrent->pNext;
-  }
-
-  /* Now we are at Position, lets insert the new node */
-  value = pCurrent->element;
+  list_delete_front();
 
   return value;
 }
@@ -941,6 +1017,7 @@ void linked_list<T>::list_show (void) {
     }
   }
   else {
-     cout << "Error: No elements in linked list" << endl;
+    // cout << "Error: No elements in linked list" << endl;
+    throw std::runtime_error("linked_list::list_show - list is empty");    
   }
 }
