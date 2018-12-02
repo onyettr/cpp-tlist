@@ -719,8 +719,8 @@ void linked_list<T>::list_delete_back (void) {
     delete [] pCurrent->pNext;     /* Delete the last element */
 
     pCurrent->pNext = NULL;    /* Current is now the last */
-    pTail = pCurrent;       /* Update the Tail to last */
-    list_count--;            /* Decrement the nodeCount */
+    pTail = pCurrent;          /* Update the Tail to last */
+    list_count--;              /* Decrement the nodeCount */
   
 #if defined ( DEBUG_TRACE )
     cout << "deleting    " << pCurrent->pNext;    
@@ -760,7 +760,7 @@ void linked_list<T>::list_sort (void) {
  */
 template <class T>
 int linked_list<T>::list_size (void) {
-#if defined ( DEBUG_TRACE_1 )
+#if defined ( DEBUG_TRACE )
    cout << "<" << this << ">TRACE: list_size called "  << endl;  
 #endif
 
@@ -780,7 +780,7 @@ int linked_list<T>::list_size (void) {
  */
 template <class T>
 bool linked_list<T>::list_empty(void) {
-#if defined ( DEBUG_TRACE_1 )
+#if defined ( DEBUG_TRACE )
    cout << "<" << this << ">TRACE: list_empty called "  << endl;  
 #endif
 

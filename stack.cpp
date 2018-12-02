@@ -13,8 +13,9 @@ Includes
 #include <iostream>
 #include "list.h"
 
+//linked_list<int> stack;
 //linked_list<int> stack(3);
-linked_list<int> stack(6,999);
+linked_list<int> stack(4,999);
 
 void push(int value) {
   try {
@@ -54,7 +55,7 @@ int main ( void ){
   
   cout << "Stack Using Linked list library" << endl;
 
-  push(101);
+  push(1001);
   display();
   
   cout << "Pop stack = " << pop() << endl;
@@ -70,9 +71,9 @@ int main ( void ){
   cout << "Pop stack = " << pop() << endl;
   push(777);
   display();
-#if 0  
+
   while (!empty()) {
     cout << i++ << " Pop stack = " << pop() << endl;
   }
-#endif
+
 }

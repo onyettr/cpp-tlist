@@ -71,7 +71,7 @@ class linked_list {
       list_element_t *pHead;              // Head of the Linked List
       list_element_t *pTail;              // Tail of the Linked List
       int list_count = 0;                 // Number of nodes or Elements in the list
-      int max_list_size = 0;              // If size if provided
+      int max_list_size = 0xFFFFFF;       // If size if provided
   
     public:
         linked_list(void);                /*! linked list constructor creates empty container           */

@@ -1,7 +1,7 @@
 * cpp-tlist tasks
 ** DONE [LIST] add new constructor with size only
 ** TODO [LIST] add begin and end iterators
-** TODO [LIST] add pop_back and pop_front which delete the elements
+** DONE [LIST] add pop_back and pop_front which delete the elements
 ** TODO [LIST] add operator=
 ** DONE [LIST] use pop_front() as the list_clear() operation
 ** TODO [LIST] Use list_clear() in the ~linked_list dtor
