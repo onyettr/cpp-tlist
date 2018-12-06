@@ -90,9 +90,21 @@ int test_front (void)
   cout << "Test04 - return front, list has new front element" << endl;  
   addTest.list_add_at_front(111);
   cout << "Return (111) = " << addTest.list_get_front() << endl;  
-
   addTest.list_show();
   
+  cout << "\tTest05 - test example" << endl;
+  linked_list<int> mylist (2,100);         // two ints with a value of 100
+  mylist.list_show();
+
+  try {
+  mylist.list_add_at_front (200);
+  mylist.list_show();  
+  mylist.list_add_at_front (300);  
+  mylist.list_show();
+  } catch(std::runtime_error& e) {
+    cout << "Exception: " << e.what() << endl;
+  }
+         
   return 0;
 }
 

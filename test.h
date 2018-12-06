@@ -65,6 +65,7 @@ int test_empty(void);
 int test_clear(void);
 int test_cons(void);
 int test_assign(void);
+int test_remove(void);
 
 #endif // __TEST_H__
 

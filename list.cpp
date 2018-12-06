@@ -345,10 +345,15 @@ void linked_list<T>::list_add_at_front(const T& value) {
 
     /*
      * Test if we have a max size already
+     * TODO: if the list size is fixed we shouldnt really be adding a new element
+     * or increasing the size of the element count?
      */
-    if (list_size() >  max_list_size) {
+    if (list_size() >=  max_list_size) {
+#if 1      
       throw std::runtime_error("linked_list::list_add_at_front - maximum list size exceeded");
-
+#else
+      pHead->element = value;
+#endif      
       return;
     }
 
@@ -416,7 +421,7 @@ void linked_list<T>::list_add_at_back(const T& value) {
 
        return;
     }
-
+  
     Temp->element = value;
     Temp->pNext = nullptr;          /* This element points at nothing as its now at the back                  */
     pTail->pNext = Temp;            /* Make the current last element point to the new Tail                    */
@@ -500,18 +505,19 @@ T linked_list<T>::list_get_position (int position) {
      throw std::runtime_error("linked_list::list_get_position - list is empty");
   }
 
+  if (position > list_size()) {
+     throw std::runtime_error("linked_list::list_get_position - position is too big for size of list");
+  }
+  
   /* 
    * traverse list until the position is found
    */
   pCurrent = GetListHead();
-  for (int i=1; i < position; i++) {
+  //  for (int i=1; i < position; i++) {
+  for (int i=0; i < position; i++) {
+    value = pCurrent->element;    
     pCurrent = pCurrent->pNext;
   }
-
-  /*
-   * TODO Check for null here
-   */
-  value = pCurrent->element;
 
   return value;
 }
@@ -577,14 +583,14 @@ void linked_list<T>::list_delete_element (int position) {
   cout << "<" << this << ">TRACE: list_delete_element " << position << " called "  << endl;  
 #endif
     list_element_t *pCurrent;
-
+    
     /*
      * Test if the position element is legal
      */
-    if (position > list_size()) {
-      throw std::runtime_error("linked_list::list_delete_element - position beyond list_size");
+    if (position >= list_size()) {
+       throw std::runtime_error("linked_list::list_delete_element - position beyond list_size");
 
-      return;
+       return;
     }
       
     /*
@@ -599,7 +605,7 @@ void linked_list<T>::list_delete_element (int position) {
     } else {
       list_element_t *pPrevious;
       
-      for (auto i=0; i < position; i++) {
+      for (auto i=0; i < position-1; i++) {
          pPrevious = pCurrent;
          pCurrent = pCurrent->pNext;
       }
@@ -761,7 +767,7 @@ void linked_list<T>::list_sort (void) {
 template <class T>
 int linked_list<T>::list_size (void) {
 #if defined ( DEBUG_TRACE )
-   cout << "<" << this << ">TRACE: list_size called "  << endl;  
+  cout << "<" << this << ">TRACE: list_size called "  << list_count << endl;  
 #endif
 
   return list_count;
@@ -938,6 +944,42 @@ void linked_list<T>::list_reverse (void) {
     }
     pHead = pPrevious;                   /* New head of the list           */
  cout << "pHead " << pHead << " pTail " << pTail << endl;    
+}
+
+/**
+ * @fn        void linked_list::list_remove(const T& value) 
+ * @brief     remove elements containing value
+ * @param[in] value - to remove
+ * @return    none
+ * @throws    std::runtime_error - list empty
+ * @note
+ */
+template <class T>
+void linked_list<T>::list_remove (const T& value) {
+#if defined ( DEBUG_TRACE )
+    cout << "<" << this << ">TRACE: list_remove called "  << endl;  
+#endif
+    
+    /*
+     * List is empty?
+     */
+    if (list_size() == 0) {
+       throw std::runtime_error("linked_list::list_reverse - list is empty");
+
+       return;
+    }
+
+    int position = 0;
+    for (int i=0; i <= list_size(); i++){
+      //      cout << position << "  " << list_get_position(position) << " vs " << value << endl;
+      if ( list_get_position(position) == value ) {
+	 list_delete_element(position);
+#if defined (DEBUG_TRACE)	 
+	 cout << "deleting " << value << " at " << position << endl;
+#endif	 
+      }
+      position++;
+    }
 }
 
 /**

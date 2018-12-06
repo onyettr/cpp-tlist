@@ -80,22 +80,22 @@ class linked_list {
         linked_list(int number, const T&);/*! linked list fill constructor n elements, assigned T       */
         ~linked_list(void);               /*! linked list destructor       */  
 
-        // Member functions
-        void list_assign      (int n, const T& value);        // Assign (fill) n elemnts to value
-        void list_add_element (const T& value);               // Add an element to the list, increases list size by 1
-        void list_add_at_front(const T& value);               // Add an element to the front of the list, increases list size by 1
-        void list_add_at_back (const T& value);               // Add an element to the back  of the list, increases list size by 1
-        void list_add_position(int position, const T& value); // Add an element at position,increases list size by 1
-        T    list_get_position(int position);                 // return value at "position"
-        T    list_get_front   (void);                         // return value of first list element
-        T    list_get_back    (void);                         // return value of tail list element 
-        T    list_pop_back    (void);                         // Removes last  element in the container, reduces size by 1 
-        T    list_pop_front   (void);                         // Removes first element in the container, reduces size by 1
+        void list_add_element (const T& value);
+        void list_add_position(int position, const T& value);
+        void list_add_at_front(const T& value);
+        void list_add_at_back (const T& value);
+        T    list_get_position(int position);
+        T    list_get_front   (void);
+        T    list_get_back    (void);
+        void list_assign      (int n, const T& value);
+        T    list_pop_back    (void);
+        T    list_pop_front   (void);  
         void list_delete_element(int position);               // Delete element  at position, decreases list size by 1
         void list_delete_front(void);                         // Delete first element of list, decreases list size by 1
         void list_delete_back (void);                         // Delete last  element of list, decreases list size by 1
         void list_clear       (void);                         // Delete all  elements of list, decreases list size to 0
         void list_reverse     (void);                         // Reverse the contents of list
+        void list_remove      (const T& value);               // remove elements with a specific value
         int  list_search      (const T& value);               // Search list for value, return position
         void list_sort        (void);                         // Sort the list
         void list_show        (void);                         // Show the contents of the linked list

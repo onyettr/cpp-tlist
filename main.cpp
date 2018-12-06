@@ -64,21 +64,27 @@ int main ( void )
   // Sign on
   cout << "C++ Examples Simple Linked List Template Class" << endl; 
 
-  // Test Cases  
+  // Test Cases
+#if 0  
   test_add();   
   test_back();
-  test_del();
+
   test_rev();
   test_size();
   test_copy();
   test_front();
   test_search();
-  test_del_back();
-  test_del_front();
   test_empty();
   test_clear();
   test_cons();
   test_assign();
+  test_front();
+
+#endif
+  test_del_back();
+  test_del_front();
+  test_del();      
+  test_remove();
 }
 
 //

@@ -42,6 +42,7 @@ TEST_OBJS = 				\
 	$(OBJECT_DIR)/test_empty.o	\
 	$(OBJECT_DIR)/test_assign.o	\
 	$(OBJECT_DIR)/test_search.o	\
+	$(OBJECT_DIR)/test_remove.o	\
 	$(OBJECT_DIR)/test_del_back.o	\
 	$(OBJECT_DIR)/test_del_front.o	
 
@@ -131,6 +132,9 @@ $(OBJECT_DIR)/test_assign.o:	test_assign.cpp
 $(OBJECT_DIR)/test_search.o:	test_search.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_search.cpp -o $(OBJECT_DIR)/test_search.o
 
+$(OBJECT_DIR)/test_remove.o:	test_remove.cpp
+	$(CC) $(CFLAGS) $(DEBUG) test_remove.cpp -o $(OBJECT_DIR)/test_remove.o
+
 $(OBJECT_DIR)/test_empty.o:	test_empty.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_empty.cpp -o $(OBJECT_DIR)/test_empty.o
 
@@ -155,6 +159,7 @@ clean:
 	rm -f $(OBJECT_DIR)/test_empty.o
 	rm -f $(OBJECT_DIR)/test_search.o
 	rm -f $(OBJECT_DIR)/test_assign.o
+	rm -f $(OBJECT_DIR)/test_remove.o
 	rm -f $(OBJECT_DIR)/test_del_back.o
 	rm -f $(OBJECT_DIR)/test_del_front.o
 	rm -f $(OBJECT_DIR)/poortool.o

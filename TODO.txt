@@ -1,11 +1,6 @@
 * cpp-tlist tasks
-** DONE [LIST] add new constructor with size only
-** TODO [LIST] add begin and end iterators
-** DONE [LIST] add pop_back and pop_front which delete the elements
 ** TODO [LIST] add operator=
-** DONE [LIST] use pop_front() as the list_clear() operation
 ** TODO [LIST] Use list_clear() in the ~linked_list dtor
-** DONE [LIST] add assign(size_t, const value& T)
 ** TODO [LIST] add remove(const value& T) 
 ** TODO [LIST] add remove_if (Predicate pred)
 ** TODO [LIST] add list_swap
@@ -19,10 +14,19 @@
 ** TODO [LIST] Use pre-increment rather than post increment
 ** TODO [LIST] list_empty -> empty (STL)?
 ** TODO [LIST] list_get_position needs to check for nullptr after the list traversal
-** DONE [LIST] add stack example
+** TODO [LIST] list_add_at_front - should this throw an exception on memory failure?
 * Issues
+** TODO [LIST] gtest has 3 failures on deletion tests
+** TODO [LIST] gtest has seg fault issue on one of the remove tests
+** TODO [LIST] test_del has failing test when list_delete_element(1) is used, the position-1 means its the head!
+** TODO [LIST] Elements at position starting at 0 vs 1?
 ** DONE test_back: Tail looks incorrect for test2 -> FIXED, wrong call in test harness (cut and paste error)
 * Completed
+** DONE [LIST] use pop_front() as the list_clear() operation
+** DONE [LIST] add assign(size_t, const value& T)
+** DONE [LIST] add pop_back and pop_front which delete the elements
+** DONE [LIST] add new constructor with size only
+** DONE [LIST] add stack example
 ** DONE [PROJ] Convert to Templates
 ** DONE [LIST] add list_add(size, value) to constructor
 ** DONE [TEST] test harness as library

@@ -71,13 +71,14 @@ int test_del ( void )
   delTest.list_add_element(202);
   delTest.list_add_element(203);
   delTest.list_add_element(204);
-  delTest.list_add_element(205);    
+  delTest.list_add_element(205);
+  delTest.list_add_element(206);      
   cout << "\tNumber in list before deletion = " << delTest.list_size() << endl;  
   delTest.list_show();
 
   cout << "\tTest01 - del single element" << endl;
-  delTest.list_delete_element(1);
-  cout << "\tNumber in list after deletion at 1  = " << delTest.list_size() << endl;    
+  delTest.list_delete_element(2);
+  cout << "\tNumber in list after deletion at 2  = " << delTest.list_size() << endl;    
   delTest.list_show();
 
   cout << "\tTest02 - del first element" << endl;  
@@ -85,7 +86,29 @@ int test_del ( void )
   cout << "\tNumber in list after deletion at 0 = " << delTest.list_size() << endl;    
   delTest.list_show();
 
-  cout << "\tTest03 - del illegal element, exception to be thrown" << endl;    
+  cout << "\tTest03 - del two elements" << endl;
+  linked_list<int> delTest1;
+  delTest1.list_add_element(1000);
+  delTest1.list_add_element(1001);
+  delTest1.list_add_element(1002);
+  delTest1.list_add_element(1003);
+  delTest1.list_add_element(1004);
+  delTest1.list_add_element(1005);  
+  cout << "\tNumber in list before deletion = " << delTest1.list_size() << endl;  
+  delTest1.list_show();
+
+  try {
+    delTest1.list_delete_element(2);   
+    delTest1.list_delete_element(4);  
+  } catch (std::runtime_error& e) {
+    cout << "Exception: " << e.what() << endl;
+  } catch(...) {
+    cout << "Exception: ouch something bad went on = " << endl;
+  }
+  cout << "\tNumber in list after deletion at 0 = " << delTest1.list_size() << endl;    
+  delTest1.list_show();
+
+  cout << "\tTest04 - del illegal element, exception to be thrown" << endl;    
   try {
     delTest.list_delete_element(delTest.list_size()+1);    
   } catch (std::runtime_error& e) {
