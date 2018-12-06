@@ -19,6 +19,64 @@ class LinkedListTest : public testing::Test {
 };
 
 /**
+ * @brief Linked List Test ADD INT
+ */
+TEST_F(LinkedListTest, ListAddInt) {
+  linked_list<int> AddTest;
+
+  AddTest.list_add_element(100);
+  EXPECT_EQ(100, AddTest.list_get_front());
+}
+
+/**
+ * @brief Linked List Test ADD float
+ */
+TEST_F(LinkedListTest, ListAddFloat) {
+  linked_list<float> AddTest;
+
+  AddTest.list_add_element(3.143);
+  EXPECT_FLOAT_EQ(3.143, AddTest.list_get_front());
+}
+
+/**
+ * @brief Linked List Test ADD string
+ */
+TEST_F(LinkedListTest, ListAddString) {
+  linked_list<string> AddTest;
+
+  AddTest.list_add_element("hello");
+  EXPECT_EQ("hello", AddTest.list_get_front());
+}
+
+/**
+ * @brief Linked List Test ADD more elements
+ */
+TEST_F(LinkedListTest, ListAddMoreElementsInt) {
+  linked_list<int> addTest_integer;
+
+  addTest_integer.list_add_element(20);
+  addTest_integer.list_add_element(30);
+  addTest_integer.list_add_element(40);
+  addTest_integer.list_add_element(50);
+  addTest_integer.list_add_element(60);  
+
+  EXPECT_EQ(5, addTest_integer.list_size());
+}
+  
+/**
+ * @brief Linked List Test ADD more elements char
+ */
+TEST_F(LinkedListTest, ListAddMoreElementsChar) {
+  linked_list<char> addTest;
+
+  addTest.list_add_element('A');
+  addTest.list_add_element('B');
+  addTest.list_add_element('C');
+
+  EXPECT_EQ(3, addTest.list_size());
+}
+  
+/**
  * @brief Linked List Test SIZE list empty
  */
 TEST_F(LinkedListTest, ListSizeIsZero) {
@@ -28,9 +86,9 @@ TEST_F(LinkedListTest, ListSizeIsZero) {
 }
 
 /**
- * @brief Linked List Test SIZE one element
+ * @brief Linked List Test SIZE one int element
  */
-TEST_F(LinkedListTest, ListSizeIsOne) {
+TEST_F(LinkedListTest, ListSizeIsOneInt) {
   linked_list<int> SizeTest;
 
   SizeTest.list_add_element(100);
@@ -196,7 +254,8 @@ TEST_F(LinkedListTest, ListAddAtPosition) {
   AddTest.list_add_element(4);
 
   AddTest.list_add_position(2, 5);
-  EXPECT_EQ(5,AddTest.list_size());
+
+  EXPECT_EQ(5,AddTest.list_get_position(2));
 }
 
 /**
@@ -234,6 +293,53 @@ TEST_F(LinkedListTest, ListGetEmpty) {
   ADD_FAILURE() << "Exception not thrown as expected";
 }
 
+/**
+ * @brief Tests - pop back Positive
+ */
+TEST_F(LinkedListTest, ListPopBack) {
+  linked_list<int> popTest;
+
+  popTest.list_add_element(1);
+  popTest.list_add_element(2);
+  popTest.list_add_element(3);
+  popTest.list_add_element(4);
+
+  popTest.list_pop_back();
+  EXPECT_EQ(3,popTest.list_size());
+}
+
+/**
+ * @brief Tests - pop front Positive
+ */
+TEST_F(LinkedListTest, ListPopFront) {
+  linked_list<int> popTest;
+
+  popTest.list_add_element(1);
+  popTest.list_add_element(2);
+  popTest.list_add_element(3);
+  popTest.list_add_element(4);
+
+  EXPECT_EQ(1,popTest.list_pop_front());
+}
+
+/**
+ * @brief Tests - pop front Empty
+ */
+TEST_F(LinkedListTest, ListPopBackEmpty) {
+  linked_list<int> popTest;
+
+  try {
+    popTest.list_pop_front();    
+  }
+  catch (std::runtime_error& e) {
+    SUCCEED();
+    return;
+  }
+  catch (...) {
+    FAIL() << "odd exception?";
+  }
+}
+  
 /**
  * @brief Tests - Delete test
  */
@@ -432,7 +538,7 @@ TEST_F(LinkedListTest, ListReverseZeroElement) {
 }
 
 /**
- * @brief Tests - search one element, postive
+ * @brief Tests - search one element, positive
  */
 TEST_F(LinkedListTest, ListSearchOneElementPositive) {
   linked_list<int> srcTest;

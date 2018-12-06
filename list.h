@@ -79,17 +79,17 @@ class linked_list {
         linked_list(const linked_list &); /*! linked list copy constructor creates copy of each element */
         linked_list(int number, const T&);/*! linked list fill constructor n elements, assigned T       */
         ~linked_list(void);               /*! linked list destructor       */  
-
+  
         void list_add_element (const T& value);
-        void list_add_position(int position, const T& value);
-        void list_add_at_front(const T& value);
-        void list_add_at_back (const T& value);
-        T    list_get_position(int position);
-        T    list_get_front   (void);
-        T    list_get_back    (void);
-        void list_assign      (int n, const T& value);
-        T    list_pop_back    (void);
-        T    list_pop_front   (void);  
+        void list_add_position(int position, const T& value); // Add element with value at position 
+        void list_add_at_front(const T& value);               // Add element at the front
+        void list_add_at_back (const T& value);               // Add element at the back
+        T    list_get_position(int position);                 // Get element value at position
+        T    list_get_front   (void);                         // Get element value at front
+        T    list_get_back    (void);                         // Get element value at back
+        void list_assign      (int n, const T& value);        // Assign (fill) n elements with value
+        T    list_pop_back    (void);                         // Return the back  value, decreases list size by 1
+        T    list_pop_front   (void);                         // Return the front value, decreases list size by 1
         void list_delete_element(int position);               // Delete element  at position, decreases list size by 1
         void list_delete_front(void);                         // Delete first element of list, decreases list size by 1
         void list_delete_back (void);                         // Delete last  element of list, decreases list size by 1
