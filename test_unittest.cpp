@@ -383,7 +383,7 @@ TEST_F(LinkedListTest, ListDeleteElementFirstPosition) {
   DelTest.list_show();  
   DelTest.list_delete_element(0);
   DelTest.list_show();
-  EXPECT_EQ(203, DelTest.list_get_position(0));
+  EXPECT_EQ(203, DelTest.list_get_front());
 }
 
   /**
@@ -399,7 +399,7 @@ TEST_F(LinkedListTest, ListDeleteElementFront) {
   DelTest.list_show();  
   DelTest.list_delete_front();
   DelTest.list_show();
-  EXPECT_EQ(203, DelTest.list_get_position(0));
+  EXPECT_EQ(203, DelTest.list_get_front());
 }
 
 /**
@@ -464,8 +464,16 @@ TEST_F(LinkedListTest, ListDeleteBackOneElement) {
   DelTest.list_add_element(200);
   DelTest.list_show();  
   DelTest.list_delete_back();
-  DelTest.list_show();
-  EXPECT_EQ(0, DelTest.list_size());
+
+  try {
+     DelTest.list_show();
+  } catch (std::runtime_error& e) {
+    SUCCEED();
+    return;
+  } catch (...) {
+    FAIL() << "odd exception?";
+  }
+  ADD_FAILURE() << "Exception not thrown as expected";
 }
 
 /**
