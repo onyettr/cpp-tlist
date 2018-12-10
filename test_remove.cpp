@@ -119,6 +119,62 @@ int test_remove ( void )
   cout << "\tNumber in list after  removal = " << rmTest.list_size() << endl;      
   rmTest.list_show();
 
+  /*
+   * Test4: remove positive mutiple delete
+   */
+#if 0
+  linked_list<int> rmTest4;
+  cout << "\tTest04 - remove at start elements" << endl;
+  rmTest4.list_add_element(201);
+  rmTest4.list_add_element(1001);
+  rmTest4.list_add_element(3001);
+
+  cout << "\tNumber in list before removal = " << rmTest4.list_size() << endl;
+  rmTest4.list_show();
+  rmTest4.list_remove(201);
+  cout << "\tNumber in list after  removal = " << rmTest4.list_size() << endl;
+  rmTest4.list_show();
+#endif
+
+  /*
+   * Test5: remove positive at end
+   */
+  linked_list<int> rmTest5;
+  cout << "\tTest05 - remove at end elements" << endl;
+  rmTest5.list_add_element(1001);
+  rmTest5.list_add_element(3001);
+  rmTest5.list_add_element(201);
+
+  cout << "\tNumber in list before removal = " << rmTest5.list_size() << endl;
+  rmTest5.list_show();
+  rmTest5.list_remove(201);
+  cout << "\tNumber in list after  removal = " << rmTest5.list_size() << endl;
+  rmTest5.list_show();
+
+  /*
+   * Test6: remove positive numerous elements
+   */
+  linked_list<int> rmTest6;
+  cout << "\tTest06 - remove numerous elements" << endl;
+
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(1001);
+  rmTest6.list_add_element(2001);
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(3001);
+
+  cout << "\tNumber in list before removal = " << rmTest6.list_size() << endl;
+  rmTest6.list_show();
+  rmTest6.list_remove(201);
+  cout << "\tNumber in list after removal  = " << rmTest6.list_size() << endl;
+  rmTest6.list_show();
+
   cout << "**** Linked List Class Test Template - remove  Ends" << endl;
   
   return 0;

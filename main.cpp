@@ -81,10 +81,10 @@ int main ( void )
   test_front();
 
 #endif
-  test_del_back();
+//  test_del_back();
   test_del_front();
-  test_del();      
   test_remove();
+//  test_del();
 }
 
 //

@@ -77,7 +77,8 @@ int test_del_front ( void )
 
   cout << "\tTest01 - delete front element" << endl;
   delTest.list_delete_front();
-  cout << "\tNumber in list after deletion at 1  = " << delTest.list_size() << endl;    
+  cout << "\tNumber in list after deletion at 1  = " << delTest.list_size() << endl;
+  cout << "\tExpected value 203 = " << delTest.list_get_front() << endl;
   delTest.list_show();
 
   cout << "\tTest02 - delete front element, exception to be thrown - empty list" << endl;

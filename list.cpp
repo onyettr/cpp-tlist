@@ -969,16 +969,20 @@ void linked_list<T>::list_remove (const T& value) {
        return;
     }
 
+    list_element_t *pCurrent;
     int position = 0;
-    for (int i=0; i <= list_size(); i++){
-      //      cout << position << "  " << list_get_position(position) << " vs " << value << endl;
-      if ( list_get_position(position) == value ) {
-	 list_delete_element(position);
-#if defined (DEBUG_TRACE)	 
-	 cout << "deleting " << value << " at " << position << endl;
-#endif	 
-      }
-      position++;
+
+    pCurrent = GetListHead();
+
+    while (pCurrent) {
+    	if ( list_get_position(position) == value ) {
+    		list_delete_element(position);
+            pCurrent = GetListHead();
+            position = 0;
+          } else {
+        	  pCurrent = pCurrent->pNext;
+        	  position++;
+          }
     }
 }
 
