@@ -82,7 +82,7 @@ int main ( void )
 
 #endif
 //  test_del_back();
-  test_del_front();
+//  test_del_front();
   test_remove();
 //  test_del();
 }

@@ -513,12 +513,25 @@ T linked_list<T>::list_get_position (int position) {
    * traverse list until the position is found
    */
   pCurrent = GetListHead();
-  //  for (int i=1; i < position; i++) {
-  for (int i=0; i < position; i++) {
-    value = pCurrent->element;    
+
+  if (position == 0) {
+
+    value = list_get_front();
+    cout << "get_pos zero pCur " << pCurrent << " pos " << position << " value " << value << endl;        
+  } else {
+  for (int i=1; i <= position; i++) {
+
+    value = pCurrent->element;
+    cout << "get_pos itr pCur " << pCurrent << " pos " << i << " value " << value << endl;
+    
     pCurrent = pCurrent->pNext;
   }
+  }
 
+  //#if defined (DEBUG_TRACE)
+  cout << "<" << this << ">TRACE: list_get_position @ " << position << " ret " << value << endl;
+  //#endif
+  
   return value;
 }
 
@@ -579,9 +592,9 @@ void linked_list<T>::list_assign (int n, const T& value) {
  */
 template <class T>
 void linked_list<T>::list_delete_element (int position) {
-#if defined ( DEBUG_TRACE )
+  //#if defined ( DEBUG_TRACE )
   cout << "<" << this << ">TRACE: list_delete_element " << position << " called "  << endl;  
-#endif
+  //#endif
     list_element_t *pCurrent;
     
     /*
@@ -605,15 +618,17 @@ void linked_list<T>::list_delete_element (int position) {
     } else {
       list_element_t *pPrevious;
       
-      for (auto i=0; i < position-1; i++) {
+      //      for (auto i=0; i < position-1; i++) {
+      for (auto i=0; i < position; i++) {      
          pPrevious = pCurrent;
          pCurrent = pCurrent->pNext;
       }
       pPrevious->pNext = pCurrent->pNext;    /* Previous entry is now pointing to one beyond the deleted entry */      
     }
-#if defined (DEBUG_TRACE)
-    cout << "deleting    " << pCurrent;
-#endif    
+    //#if defined (DEBUG_TRACE)
+    cout << "deleting    " << pCurrent << endl;
+    //    list_show();
+    //#endif    
     delete [] pCurrent;                      /* Delete the entry at position */
 
     list_count--;
@@ -957,7 +972,7 @@ void linked_list<T>::list_reverse (void) {
 template <class T>
 void linked_list<T>::list_remove (const T& value) {
 #if defined ( DEBUG_TRACE )
-    cout << "<" << this << ">TRACE: list_remove called "  << endl;  
+    cout << "<" << this << ">TRACE: list_remove called "  << value << endl;  
 #endif
     
     /*
@@ -975,10 +990,12 @@ void linked_list<T>::list_remove (const T& value) {
     pCurrent = GetListHead();
 
     while (pCurrent) {
+      cout << "remove pCurrent " << pCurrent << " pos " << position << endl;
     	if ( list_get_position(position) == value ) {
-    		list_delete_element(position);
+            list_delete_element(position);
             pCurrent = GetListHead();
             position = 0;
+	    cout << "match " << position << endl;
           } else {
         	  pCurrent = pCurrent->pNext;
         	  position++;

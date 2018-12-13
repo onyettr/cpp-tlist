@@ -744,7 +744,6 @@ TEST_F(LinkedListTest, ListRemoveOneElementPass) {
   EXPECT_EQ(2, rmTest.list_size());  
 }
 
-#if 0    
 /**
  * @brief Tests - remove test, positive single delete, at the start (Head)
  */
@@ -759,6 +758,7 @@ TEST_F(LinkedListTest, ListRemoveOneElementPassFront) {
   EXPECT_EQ(2, rmTest.list_size());  
 }
 
+#if 0  
 /**
  * @brief Tests - remove test, positive single delete, at the End (Tail)
  */
@@ -788,7 +788,9 @@ TEST_F(LinkedListTest, ListRemoveOneElementNotthereFail) {
   rmTest.list_remove(401);    
   EXPECT_EQ(3, rmTest.list_size());  
 }
+#endif
 
+#if 0  
 /**
  * @brief Tests - remove test, positive, only one element
  */
@@ -800,7 +802,9 @@ TEST_F(LinkedListTest, ListRemoveOneElementFail) {
   rmTest.list_remove(201);
   EXPECT_TRUE(rmTest.list_empty());  
 }
-  
+#endif
+
+#if 0  
 /**
  * @brief Tests - remove test, positive mutiple delete
  */
