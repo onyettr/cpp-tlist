@@ -87,7 +87,6 @@ int test_clear ( void )
 
   delTest.list_clear();
   cout << "\tNumber in list after clear (0) = " << delTest.list_size() << endl;    
-  delTest.list_show();
 
   cout << "**** Linked List Class Test Template - deletion Ends" << endl;
   

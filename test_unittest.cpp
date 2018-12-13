@@ -758,7 +758,6 @@ TEST_F(LinkedListTest, ListRemoveOneElementPassFront) {
   EXPECT_EQ(2, rmTest.list_size());  
 }
 
-#if 0  
 /**
  * @brief Tests - remove test, positive single delete, at the End (Tail)
  */
@@ -772,9 +771,7 @@ TEST_F(LinkedListTest, ListRemoveOneElementPassBack) {
   rmTest.list_remove(201);    
   EXPECT_EQ(2, rmTest.list_size());  
 }
-#endif
-  
-#if 0  
+
 /**
  * @brief Tests - remove test, positive, no deletes
  */
@@ -788,9 +785,7 @@ TEST_F(LinkedListTest, ListRemoveOneElementNotthereFail) {
   rmTest.list_remove(401);    
   EXPECT_EQ(3, rmTest.list_size());  
 }
-#endif
 
-#if 0  
 /**
  * @brief Tests - remove test, positive, only one element
  */
@@ -802,28 +797,29 @@ TEST_F(LinkedListTest, ListRemoveOneElementFail) {
   rmTest.list_remove(201);
   EXPECT_TRUE(rmTest.list_empty());  
 }
-#endif
 
-#if 0  
 /**
  * @brief Tests - remove test, positive mutiple delete
  */
 TEST_F(LinkedListTest, ListRemoveManyElementPass) {
-  linked_list<int> rmTest;
+  linked_list<int> rmTest6;
 
-  rmTest.list_add_element(1001);
-  rmTest.list_add_element(3001);  
-  rmTest.list_add_element(201);
-  rmTest.list_add_element(201);
-  rmTest.list_add_element(3001);
-  rmTest.list_add_element(4001);
-  rmTest.list_add_element(5001);          
-  rmTest.list_add_element(6001);
-  rmTest.list_add_element(201);          
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(1001);
+  rmTest6.list_add_element(2001);
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(201);
+  rmTest6.list_add_element(3001);
+//  rmTest6.list_add_element(201);
 
-  rmTest.list_remove(201);
-  rmTest.list_show();
-  EXPECT_EQ(6, rmTest.list_size());  
+  rmTest6.list_remove(201);
+  rmTest6.list_show();
+  EXPECT_EQ(3, rmTest6.list_size());
+  EXPECT_EQ(3001, rmTest6.list_get_back());
 }
-#endif  
 }

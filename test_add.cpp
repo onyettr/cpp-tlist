@@ -126,7 +126,7 @@ int test_add ( void )
   addTest_integer.list_show();
   cout << "\tTest03a - size of list " << addTest_integer.list_size() << endl;
 
-  cout << "\tTest04a - emplace" << endl;
+  cout << "\tTest04a - add at position" << endl;
   linked_list<int> emplaceTest;
   emplaceTest.list_add_element(1);
   emplaceTest.list_add_element(2);

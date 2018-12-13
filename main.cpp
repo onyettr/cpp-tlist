@@ -65,10 +65,9 @@ int main ( void )
   cout << "C++ Examples Simple Linked List Template Class" << endl; 
 
   // Test Cases
-#if 0  
+#if 1
   test_add();   
   test_back();
-
   test_rev();
   test_size();
   test_copy();
@@ -79,12 +78,14 @@ int main ( void )
   test_cons();
   test_assign();
   test_front();
-
-#endif
-//  test_del_back();
-//  test_del_front();
+  test_del_back();
+  test_del_front();
+  test_del();
   test_remove();
-//  test_del();
+#else
+  test_add();
+  test_remove();
+#endif
 }
 
 //

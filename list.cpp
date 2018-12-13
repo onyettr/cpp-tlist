@@ -313,7 +313,8 @@ void linked_list<T>::list_add_position(int position, const T& value) {
   /*
    * Traverse the list until we get to position
    */
-  for (int i=1; i < position; i++) {
+ // for (int i=1; i < position; i++) {
+  for (int i=0; i < position; i++) {
      pPrevious = pCurrent;
      pCurrent = pCurrent->pNext;
   }
@@ -436,50 +437,6 @@ void linked_list<T>::list_add_at_back(const T& value) {
 #endif    
 }
 
-/**
- * @fn        void linked_list::list_clear(void)
- * @brief     Remove all list elements from a list
- * @param[in]  
- * @return    none
- * @details   
- * @throws    std::runtime_error
- * @note
- */
-template <class T>
-void linked_list<T>::list_clear (void) {
-#if defined ( DEBUG_TRACE )
-  cout << "<" << this << ">TRACE: list_clear called "  << endl;
-#endif
-  list_element_t *pCurrent;
-  list_element_t *pNext;
-
-  /*
-   * List is empty?
-   */
-  if (list_size() == 0) {
-     throw std::runtime_error("linked_list::list_clear - list is empty");
-
-     return;
-  }
-  
-  /*
-   * From beginning of the list, move to the "next" and delete
-   */
-  pCurrent = GetListHead();
-
-  while (pCurrent != nullptr ) {
-     pNext = pCurrent->pNext;
-     delete [] pCurrent;
-     pCurrent = pNext;
-     list_count--;
-  }
-
-  /*
-   * reset the Head and Tail, cleanup for the descrtuctor
-   */
-  pHead = nullptr;
-  pTail = nullptr;
-}
 
 /**
  * @fn        T linked_list::list_get_position(int position)
@@ -515,22 +472,17 @@ T linked_list<T>::list_get_position (int position) {
   pCurrent = GetListHead();
 
   if (position == 0) {
-
     value = list_get_front();
-    cout << "get_pos zero pCur " << pCurrent << " pos " << position << " value " << value << endl;        
   } else {
-  for (int i=1; i <= position; i++) {
-
-    value = pCurrent->element;
-    cout << "get_pos itr pCur " << pCurrent << " pos " << i << " value " << value << endl;
-    
-    pCurrent = pCurrent->pNext;
-  }
+	  for (int i=0; i <= position; i++) {
+		  value = pCurrent->element;
+		  pCurrent = pCurrent->pNext;
+	  }
   }
 
-  //#if defined (DEBUG_TRACE)
+#if defined (DEBUG_TRACE)
   cout << "<" << this << ">TRACE: list_get_position @ " << position << " ret " << value << endl;
-  //#endif
+#endif
   
   return value;
 }
@@ -592,9 +544,9 @@ void linked_list<T>::list_assign (int n, const T& value) {
  */
 template <class T>
 void linked_list<T>::list_delete_element (int position) {
-  //#if defined ( DEBUG_TRACE )
-  cout << "<" << this << ">TRACE: list_delete_element " << position << " called "  << endl;  
-  //#endif
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_delete_element @ " << position << " called "  << endl;
+#endif
     list_element_t *pCurrent;
     
     /*
@@ -618,22 +570,21 @@ void linked_list<T>::list_delete_element (int position) {
     } else {
       list_element_t *pPrevious;
       
-      //      for (auto i=0; i < position-1; i++) {
       for (auto i=0; i < position; i++) {      
          pPrevious = pCurrent;
          pCurrent = pCurrent->pNext;
       }
       pPrevious->pNext = pCurrent->pNext;    /* Previous entry is now pointing to one beyond the deleted entry */      
     }
-    //#if defined (DEBUG_TRACE)
-    cout << "deleting    " << pCurrent << endl;
-    //    list_show();
-    //#endif    
+
+#if defined (DEBUG_TRACE)
+    cout << "<" << this << ">TRACE: list_delete_element deleting " << pCurrent << endl;
+#endif
     delete [] pCurrent;                      /* Delete the entry at position */
 
     list_count--;
 
-#if defined ( DEBUG_TRACE )  
+#if defined (DEBUG_TRACE)
     cout << "<" << this << ">TRACE: list_delete_element Head " << pHead << endl;  
     cout << "<" << this << ">TRACE: list_delete_element Tail " << pTail << endl;
 #endif  
@@ -748,6 +699,51 @@ void linked_list<T>::list_delete_back (void) {
     cout << "<" << this << ">TRACE: list_delete_back Head " << pHead << endl;  
     cout << "<" << this << ">TRACE: list_delete_back Tail " << pTail << endl;
 #endif  
+}
+
+/**
+ * @fn        void linked_list::list_clear(void)
+ * @brief     Remove all list elements from a list
+ * @param[in]
+ * @return    none
+ * @details
+ * @throws    std::runtime_error
+ * @note
+ */
+template <class T>
+void linked_list<T>::list_clear (void) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_clear called "  << endl;
+#endif
+  list_element_t *pCurrent;
+  list_element_t *pNext;
+
+  /*
+   * List is empty?
+   */
+  if (list_size() == 0) {
+     throw std::runtime_error("linked_list::list_clear - list is empty");
+
+     return;
+  }
+
+  /*
+   * From beginning of the list, move to the "next" and delete
+   */
+  pCurrent = GetListHead();
+
+  while (pCurrent != nullptr ) {
+     pNext = pCurrent->pNext;
+     delete [] pCurrent;
+     pCurrent = pNext;
+     list_count--;
+  }
+
+  /*
+   * reset the Head and Tail, cleanup for the descrtuctor
+   */
+  pHead = nullptr;
+  pTail = nullptr;
 }
 
 /**
@@ -990,12 +986,10 @@ void linked_list<T>::list_remove (const T& value) {
     pCurrent = GetListHead();
 
     while (pCurrent) {
-      cout << "remove pCurrent " << pCurrent << " pos " << position << endl;
     	if ( list_get_position(position) == value ) {
             list_delete_element(position);
             pCurrent = GetListHead();
             position = 0;
-	    cout << "match " << position << endl;
           } else {
         	  pCurrent = pCurrent->pNext;
         	  position++;
