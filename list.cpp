@@ -998,6 +998,29 @@ void linked_list<T>::list_remove (const T& value) {
 }
 
 /**
+ * @fn        void linked_list::list_remove_if(Predicate Pred) 
+ * @brief     remove elements containing value
+ * @param[in] Pred
+ * @return    none
+ * @throws    std::runtime_error - list empty
+ * @note
+ */
+template<class T>
+template<typename Predicate>
+void linked_list<T>::list_remove_if(Predicate pred) {
+#if defined ( DEBUG_TRACE )
+    cout << "<" << this << ">TRACE: list_remove_if called "  << value << endl;  
+#endif
+    
+    /*
+     * List is empty?
+     */
+    if (list_size() == 0) {
+       return;
+    }
+}
+
+/**
  * @fn        void linked_list::list_search(const T& value) 
  *
  * @brief     Search the single linked list

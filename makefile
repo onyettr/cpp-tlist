@@ -1,7 +1,13 @@
 #*******************************************************************************
 # File name        : makeile
 # File description : C++ Single Link list builda
-# Author           : ronyett
+# @author          ronyett
+#
+# Builds the following targets:
+# list.exe         Linked List + test harness components (libtest.a)
+# gtest.exe        Google Test harness 
+# example	   Makes stack.exe (Stack inmplementation using Linked List)
+# splint-me        cppcheck
 #*******************************************************************************
 
 SRC_DIR		= 	.
@@ -16,7 +22,7 @@ CFLAGS		=	-g -c -Wall -pedantic
 #CFLAGS		+= 	-DDEBUG_TRACE
 LFLAGS		=
 
-MAKE            = 	gmake
+MAKE            = 	make
 CHECK		= 	cppcheck
 CHECK_FLAGS	= 	--language=c++ --enable=all -igoogletest
 
@@ -29,6 +35,9 @@ OBJS  = $(OBJECT_DIR)/main.o
 LIST_OBJS = 				\
 #	$(OBJECT_DIR)/list.o
 
+#
+# Test harness components, one per method
+#
 TEST_OBJS = 				\
 	$(OBJECT_DIR)/test_add.o	\
 	$(OBJECT_DIR)/test_del.o 	\
@@ -82,7 +91,7 @@ liblist.a:	$(OBJECT_DIR)/list.o
 #
 # Example use cases
 #
-example: 	stack.exe
+example: 	stack.exe 
 
 stack.exe:	$(OBJECT_DIR)/stack.o list.h list.cpp
 	$(LINK) $(LFLAGS) $(OBJECT_DIR)/stack.o -o stack.exe
