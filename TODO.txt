@@ -16,39 +16,39 @@
 ** TODO [LIST] list_get_position needs to check for nullptr after the list traversal
 ** TODO [LIST] list_add_at_front - should this throw an exception on memory failure?
 * APIS
-** TODO linked_list, linked_list(n), linked_list(n,value)
-** TODO ~linked_list
-** TODO list_assign
-** TODO list_back
+** DONE linked_list, linked_list(n), linked_list(n,value)
+** DONE ~linked_list
+** DONE list_assign
+** DONE list_back
 ** list_begin
 ** list_cbegin
+** DONE list_clear
 ** list_cend
-** TODO list_clear
 ** list_crbegin
-** TODO list_add (emplace)
-** TODO list_add_front  (emplace)
-** TODO list_add_back   (emplace)
-** TODO list_add_position
-** TODO list_empty
+** DONE list_add (emplace)
+** DONE list_add_front  (emplace)
+** DONE list_add_back   (emplace)
+** DONE list_add_position
+** DONE list_empty
 ** list_end
-** TODO list_erase
-** TODO list_get_front
+** DONE list_erase
+** DONE list_get_front
 ** list_get_allocator
-** TODO list_insert (See add)
+** DONE list_insert (See add)
 ** list_max_size
 ** list_merge
 ** operator=
-** TODO list_pop_back
-** TODO list_pop_front
-** TODO list_push_back
-** TODO list_push_front
+** DONE list_pop_back
+** DONE list_pop_front
+** DONE list_push_back
+** DONE list_push_front
 ** list_rbegin
-** TODO list_remove
+** DONE list_remove
 ** list_remove_if
 ** list_rend
 ** list_resize
-** TODO list_reverse
-** TODO list_size
+** DONE list_reverse
+** DONE list_size
 ** list_sort
 ** list_swap
 ** list_splice
