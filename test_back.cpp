@@ -93,6 +93,11 @@ int test_back (void)
 
   addTest.list_show();
 
+  linked_list<int> addTest2;
+  cout << "\tTest05 - add back, list is emptyt" << endl;  
+  addTest2.list_add_at_back(222);
+  cout << "\tReturn (222) = " << addTest2.list_get_back() << endl;  
+  addTest2.list_show();
   
   cout << "**** Linked List Class Test Template - back Ends" << endl;
   

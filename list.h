@@ -74,11 +74,13 @@ class linked_list {
       int max_list_size = 0xFFFFFF;       // If size if provided
   
     public:
-        linked_list(void);                /*! linked list constructor creates empty container           */
-        linked_list(int number);          /*! linked list fill constructor n elememts, assigned 0       */
+        linked_list(void);                /*! linked list constructor creates empty container, no elements */
+  //        explicit linked_list(int number); /*! linked list fill constructor n elememts, assigned 0       */
         linked_list(const linked_list &); /*! linked list copy constructor creates copy of each element */
         linked_list(int number, const T&);/*! linked list fill constructor n elements, assigned T       */
         ~linked_list(void);               /*! linked list destructor       */  
+
+        linked_list &operator=(const linked_list<T> &rhs);
   
         void list_add_element (const T& value);
         void list_add_position(int position, const T& value); // Add element with value at position 
