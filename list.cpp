@@ -445,8 +445,16 @@ void linked_list<T>::list_add_at_back(const T& value) {
   
     Temp->element = value;
     Temp->pNext = nullptr;          /* This element points at nothing as its now at the back                  */
-    pTail->pNext = Temp;            /* Make the current last element point to the new Tail                    */
-    pTail = Temp;                   /* This moves the Tail to point to the new element, making it at the back */
+    if (pTail == nullptr) {
+      /*
+       * we are front and back!
+       */
+      pHead = Temp;
+      pTail = Temp;
+    } else {
+      pTail->pNext = Temp;            /* Make the current last element point to the new Tail                    */
+      pTail = Temp;                   /* This moves the Tail to point to the new element, making it at the back */
+    }
   
     list_count++;
     

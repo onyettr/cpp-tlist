@@ -1,13 +1,11 @@
 * cpp-tlist tasks
 ** TODO [LIST] add operator=
+** TODO [LIST] replace new with unique_ptr
 ** TODO [LIST] Use list_clear() in the ~linked_list dtor
 ** TODO [LIST] add remove(const value& T) 
 ** TODO [LIST] add remove_if (Predicate pred)
 ** TODO [LIST] add list_swap
 ** TODO [LIST] list_delete(element)? is this valid?
-** DONE [LIST] Add list_remove element with specific value
-** DONE [LIST] Add list_remove(value)
-** DONE [LIST] Add list_clear to remove all list entries
 ** TODO [LIST] iterator suppport list.begin(), list.end()
 ** TODO [LIST] list.sort() to be implemented
 ** TODO [LIST] Print function should default to std::cout (std::ostream& stream = std::cout) const
@@ -16,48 +14,52 @@
 ** TODO [LIST] list_get_position needs to check for nullptr after the list traversal
 ** TODO [LIST] list_add_at_front - should this throw an exception on memory failure?
 * APIS
-** TODO linked_list, linked_list(n), linked_list(n,value)
-** TODO ~linked_list
-** TODO list_assign
-** TODO list_back
-** list_begin
-** list_cbegin
-** list_cend
-** TODO list_clear
-** list_crbegin
-** TODO list_add (emplace)
-** TODO list_add_front  (emplace)
-** TODO list_add_back   (emplace)
-** TODO list_add_position
-** TODO list_empty
-** list_end
-** TODO list_erase
-** TODO list_get_front
-** list_get_allocator
-** TODO list_insert (See add)
-** list_max_size
-** list_merge
-** operator=
-** TODO list_pop_back
-** TODO list_pop_front
-** TODO list_push_back
-** TODO list_push_front
-** list_rbegin
-** TODO list_remove
-** list_remove_if
-** list_rend
-** list_resize
-** TODO list_reverse
-** TODO list_size
-** list_sort
-** list_swap
-** list_splice
-** list_unique
+** DONE linked_list, linked_list(n), linked_list(n,value)
+** DONE ~linked_list
+** DONE list_assign
+** DONE list_back
+** TODO list_begin
+** TODO list_cbegin
+** TODO list_cend
+** DONE list_clear
+** TODO list_crbegin
+** DONE list_add (emplace)
+** DONE list_add_front  (emplace)
+** DONE list_add_back   (emplace)
+** DONE list_add_position
+** DONE list_empty
+** TODO list_end
+** DONE list_erase
+** DONE list_get_front
+** TODO list_get_allocator
+** DONE list_insert (See add)
+** TODO list_max_size
+** TODO list_merge
+** TODO operator=
+** DONE list_pop_back
+** DONE list_pop_front
+** DONE list_push_back
+** DONE list_push_front
+** TODO list_rbegin
+** DONE list_remove
+** TODO list_remove_if
+** TODO list_rend
+** TODO list_resize
+** DONE list_reverse
+** DONE list_size
+** TODO list_sort
+** TODO list_swap
+** TODO list_splice
+** TODO list_unique
 * Issues
+** DONE [BUG] list_add_back with an empty list causes seg fault
 ** TODO [BUG] gtest has seg fault issue on one of the remove tests
 ** TODO [BUG] test_del has failing test when list_delete_element(1) is used, the position-1 means its the head!
 ** TODO [BUG] list_remove(value), if value is end of list,pTail is no updated. gtest fails as well.
 * Completed
+** DONE [LIST] Add list_remove element with specific value
+** DONE [LIST] Add list_remove(value)
+** DONE [LIST] Add list_clear to remove all list entries
 ** DONE [LIST] use pop_front() as the list_clear() operation
 ** DONE [LIST] add assign(size_t, const value& T)
 ** DONE [LIST] add pop_back and pop_front which delete the elements

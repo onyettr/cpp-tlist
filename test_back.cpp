@@ -97,6 +97,7 @@ int test_back (void)
   cout << "\tTest05 - add back, list is emptyt" << endl;  
   addTest2.list_add_at_back(222);
   cout << "\tReturn (222) = " << addTest2.list_get_back() << endl;  
+  addTest2.list_show();
   
   cout << "**** Linked List Class Test Template - back Ends" << endl;
   

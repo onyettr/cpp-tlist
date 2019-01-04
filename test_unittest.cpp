@@ -220,6 +220,16 @@ TEST_F(LinkedListTest, ListTailExplicitAddAtBack) {
 }
 
 /**
+ * @brief Tests - back list is empty
+ */
+TEST_F(LinkedListTest, ListTailExplicitAddAtBackEmpty) {
+  linked_list<int> BackTest;
+
+  BackTest.list_add_at_back(111);    
+  EXPECT_EQ(111,BackTest.list_get_back());
+}
+  
+/**
  * @brief Tests - add list is ok
  */
 TEST_F(LinkedListTest, ListAddOneElement) {
@@ -643,11 +653,13 @@ TEST_F(LinkedListTest, ListCtorFill) {
 /**
  * @brief Tests - constructor fill test
  */
+#if 0  
 TEST_F(LinkedListTest, ListCtorFillZero) {
   linked_list<int> consTest_Fill(4);
   
   EXPECT_EQ(4, consTest_Fill.list_size());
 }
+#endif
   
 /**
  * @brief Tests - assign test, negative empty 
