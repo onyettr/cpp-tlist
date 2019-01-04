@@ -37,6 +37,7 @@ Includes
 ******************************************************************************
 */
 #include <iostream>
+#include <algorithm>
 #include <string.h>
 #include "list.h"
 
@@ -113,6 +114,7 @@ linked_list<T>::linked_list(void) {
  * @return    none
  * @note      constructor create n nodes and fills with zero
  */
+#if 0
 template <class T>
 linked_list<T>::linked_list(int n) {
 #if defined ( DEBUG_TRACE )
@@ -127,6 +129,7 @@ linked_list<T>::linked_list(int n) {
      list_add_element(0);
   }
 }
+#endif
 
 /**
  * @fn        linked_list::linked_list(size_t n, const value_type& val)
@@ -218,6 +221,23 @@ linked_list<T>::~linked_list(void) {
       list_count--;
   }
 }
+
+/**
+ * @fn        linked_list<T> & linked_list<T>::operator=(const linked_list<T> &rhs) {
+ * @brief     Add a new list element
+ * @param[in] rhs
+ * @return    none
+ * @throw     none
+ * @note      
+ */
+template <class T>
+linked_list<T> &linked_list<T>::operator=(const linked_list<T> &rhs) {
+  std::swap(rhs.pHead,pHead);
+  std::swap(rhs.pTail,pTail);
+  
+  return *this;
+}
+
 
 /**
  * @fn        void linked_list::list_add_element(int value)
@@ -1011,6 +1031,7 @@ void linked_list<T>::list_remove_if(Predicate pred) {
 #if defined ( DEBUG_TRACE )
     cout << "<" << this << ">TRACE: list_remove_if called "  << value << endl;  
 #endif
+    list_element_t *pCurrent = nullptr;
     
     /*
      * List is empty?

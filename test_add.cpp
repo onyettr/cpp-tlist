@@ -102,12 +102,12 @@ int test_add ( void )
   addTest_integer.list_show();
   cout << "\tTest02a - size of this list " << addTest_integer.list_size() << endl;  
 
-  cout << "\tTest02b - add more integer elements" << endl;  
+  cout << "\tTest02b - add more character elements" << endl;  
   addTest_char.list_add_element('A');
   addTest_char.list_add_element('B');
   addTest_char.list_add_element('C');
   addTest_char.list_show();
-  cout << "\tTest02b - size of this list " << addTest_char.list_size() << endl;  
+  cout << "\tTest02b - size of this list 4 = " << addTest_char.list_size() << endl;  
 
   cout << "\tTest02c - add more string elements" << endl;  
   addTest_string.list_add_element("there");
@@ -140,7 +140,7 @@ int test_add ( void )
   emplaceTest.list_show();  
   cout << "\tTest05a - size of list " << emplaceTest.list_size() << endl;
 
-  cout << "\tTest05b get at position 2 (5) " << emplaceTest.list_get_position(2) << endl;
+  cout << "\tTest05b get at position 2 (5) =  " << emplaceTest.list_get_position(2) << endl;
   
   cout << "**** Linked List Class Test Template - add Ends" << endl;
   

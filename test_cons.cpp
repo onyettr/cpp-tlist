@@ -71,27 +71,19 @@ int test_cons ( void )
   /*
    * Create an integer fill list
    */
-  cout << "\tTest02a - create integer filled list" << endl;
+  cout << "\tTest02 - create integer filled list" << endl;
   linked_list<int> consTest_Fill(4, 1001);
   cout << "\tsize of this list " << consTest_Fill.list_size() << endl;
   consTest_Fill.list_show();
 
   /*
-   * Create an integer fill list
+   * Create a string fill list
    */
-  cout << "\tTest02b - create string  filled list" << endl;
+  cout << "\tTest03 - create string  filled list" << endl;
   linked_list<string> consTest2_Fill(6, "Hello");
   cout << "\tsize of this list " << consTest2_Fill.list_size() << endl;
   consTest2_Fill.list_show();
 
-  /*
-   * Create an integer fill list
-   */
-  cout << "\tTest02  - create char n element zero filled list" << endl;
-  linked_list<int> consTest3_Fill(6);
-  cout << "\tsize of this list " << consTest3_Fill.list_size() << endl;
-  consTest3_Fill.list_show();
-  
   cout << "**** Linked List Class Test Template - cons Ends" << endl;
   
   return 0;
